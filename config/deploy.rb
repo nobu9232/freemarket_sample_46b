@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :application, "52.192.233.63"
+set :application, "freemarket_sample_46b"
 set :repo_url, "git@github.com:nobu9232/freemarket_sample_46b.git"
 
 # Default branch is :master

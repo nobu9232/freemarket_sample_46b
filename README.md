@@ -114,7 +114,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :follower
 
 
-## transaction_groupsテーブル○
+## deal_groupsテーブル○
 |------|----|-------|
 |seller_user_id|references|null: false, foreign_key:true|
 |buyer_user_id|references|null: false, foreign_key:true|
@@ -126,9 +126,9 @@ foreign_key:true, foreign_key:true|
 - belongs_to :product
 
 
-## transaction_messagesテーブル
+## deal_messagesテーブル
 |------|----|-------|
-|transaction_group_id|references|null: false, foreign_key:true|
+|deal_group_id|references|null: false, foreign_key:true|
 |seller_user_id|references|null: false, foreign_key:true|
 |buyer_user_id|references|null: false, foreign_key:true|
 |content|text|null: false|
@@ -139,14 +139,14 @@ foreign_key:true, foreign_key:true|
 - belongs_to :transaciton_group
 
 
-## transaction_groups_usersテーブル
+## deal_groups_usersテーブル
 |------|----|-------|
-|transaction_group_id|references|null: false, foreign_key:true|
+|deal_group_id|references|null: false, foreign_key:true|
 |seller_user_id|references|null: false, foreign_key:true| 
 |buyer_user_id|references|null: false, foreign_key:true|
 
 ### Association
--  belongs_to :transaction_group
+- belongs_to :deal_group
 - belongs_to :seller_user, class_name: "User"
 - belongs_to :buyer_user, class_name: "User"
 
@@ -189,9 +189,9 @@ foreign_key:true, foreign_key:true|
 - belongs_to :brand
 - has_many :product_comments
 - has_many :likes
-- has_many :transaction_groups, through: :transaction_groups_users
-- has_many :transaction_groups_users
-- has_many :transacrion_messages
+- has_many :deal_groups, through: :deal_groups_users
+- has_many :deal_groups_users
+- has_many :deal_messages
 - has_many :product_images
 - has_one :product_status
 - has_one :product_orders

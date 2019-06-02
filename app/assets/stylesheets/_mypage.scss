@@ -1,0 +1,56 @@
+* {
+  text-decoration: none;
+  font-size: 10pt;
+  color: black;
+}
+
+.container {
+  width: 700px;
+}
+
+.user {
+  width: 100%;
+  background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?17794984);
+  
+  &__img {
+    width: 60px;
+    margin: 0 auto;
+    padding-top: 30px;
+
+    & img {
+      width: 60px;
+      height: 60px;  
+      border-radius: 50%;
+    }
+  }
+
+  &__name {
+    text-align: center;
+  }
+
+  &__achievement {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin: 8px auto;
+    padding-bottom: 20px;
+
+    &--review {
+    
+    }
+  
+    &--count-of-puroducts {
+
+    }
+  
+  }
+}
+
+.list {
+
+}
+
+.deal {
+
+}
+

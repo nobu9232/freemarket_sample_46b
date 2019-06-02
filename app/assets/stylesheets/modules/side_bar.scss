@@ -1,4 +1,6 @@
 
+
+
 i.material-icons{
   color: #BBBBBB;
   font-size: 28px;
@@ -15,17 +17,18 @@ i.material-icons{
   }
 
 .side-bar{
-  float: left;
+  float: left;    
+  background-color: #f3f3f3;
+  padding-right: 40px;
+  padding-left: 200px;
 
 
   .mypage-nav{
     width: 280px;
-    height: 1250px;
 
     &-list{
       list-style: none;
-      margin-top: 20px;
-
+      margin-top: 40px;
 
       .mypage-nav-title{
         font-weight: bold;
@@ -45,21 +48,26 @@ i.material-icons{
         line-height: 48px;
         cursor: pointer;
         position: relative;
+        border-top: 0.1 solid #eee;
+
 
         a{
           text-decoration: none;
-          color: #000;
+          color: #333;
           font-size: 14px;
           margin-left: 16px;
           }
         }
 
       .mypage-nav-list-item:hover{
-        background-color: #EEEEEE;
+        background-color: #fafafa;
+        
+        i.material-icons{
+        color: #000;
         }
-
+      }
         .mypage-nav-list-active{
-          background-color: #DDDDDD;
+          background-color: #eee;
           height: 48px;
           margin-top: 2px;
           line-height: 48px;

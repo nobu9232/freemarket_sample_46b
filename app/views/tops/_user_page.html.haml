@@ -1,0 +1,49 @@
+.wrapper  
+  .content
+    %h2 本人情報の登録
+    .form-inner
+      .mypage-explanation
+        %p
+          お客さまの本人情報をご登録ください。
+          %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      .text-right
+        = link_to '本人確認書類のアップロードについて＞'
+      .form-group
+        %label お名前
+        %p 金 正恩
+        %p
+      .form-group
+        %label お名前カナ
+        %p キム　ジョンウン
+        %p
+      .form-group
+        %label 生年月日
+        %p 1990/10/16
+        %p
+      .form-group
+        %label 郵便番号
+        %span 任意
+        %input{:calss => "input-default", :placeholder => "例）1234567", :type => "text"}/
+      .form-group
+        %label 都道府県
+        %span 任意
+        .select-wrap
+          %select.select-default{:name => "prefecture"}
+      .form-group
+        %label 市区町村
+        %span 任意
+        %input{:calss => "input-default", :placeholder => "例）横浜市緑区", :type => "text"}/
+      .form-group
+        %label 番地
+        %span 任意
+        %input{:calss => "input-default", :placeholder => "例）青山1−1−1", :type => "text"}/
+      .form-group
+        %label 建物名
+        %span 任意
+        %input{:calss => "input-default", :placeholder => "例）柳ビル103", :type => "text"}/
+      .form-group
+        %button{:type => "submit"} 登録する
+        .text-right
+          %p
+            = link_to'本人確認の登録について＞'

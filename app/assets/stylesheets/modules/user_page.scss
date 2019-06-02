@@ -1,85 +1,122 @@
 
-.content{
-  float: right;
-  width: 700px;
-
-  h2{
-    font-weight: bold;
-    font-family: sans-serif;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    margin-top: 0px;
-    margin-bottom: 2px;
-    }
-
-  .form-inner{
-    padding: 64px;
-    height: 900px;
-
-    p{
-      font-size: 14px;
-      color: #333333;
-      margin-top: 8px;
-    }
-
-    .form-group{
-      margin-top: 40px;
-      font-weight: bold;
-
-      input{
-        width: 540px;
-        margin-top: 8px;
-        height: 20px;
-        padding: 10px 16px 8px;
-      }
-
-      span{
-        font-size: 12px;
-        color: #FFF;
-        background-color: #C0C0C0;
-        padding: 2px 4px;
-      }
-
-      .select-wrap{
-        margin-top: 8px;
 
 
-        select{
-          width: 570px;
-          height: 43px;
-          padding: 10px 16px 8px;
-         }
-       }
 
-      button{
-        width: 572px;
-        height: 50px;
-        font-size: 14px;
-        color: #FFF;
-        margin-top: 40px;
-        margin-bottom: 30px;
-        background-color: #FF0000;
-      }
-    }
+i.material-icons{
+  color: #BBBBBB;
+  font-size: 28px;
+  line-height: 48px;
+  position: absolute;
+  top: 15%;
+  right: 10px;
+}
 
-    .text-right{
-      font-size: 15px;
-      color: #3399FF;
-      text-decoration: none;
-      float: right;
-
-     a{
-      font-size: 15px;
-      color: #3399FF;
-      text-decoration: none;
-      float: right;
-
-      }
-    }
-
+.material-icons{
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
   }
 
 
 
+
+.wrapper{
+  background-color: #f3f3f3;
+  float: left;
+  height: 1332px;
+  width: 920px;
+
+
+
+  .content{
+    margin-top: 40px;
+    width: 700px;
+    background-color: white;
+
+    h2{
+      font-weight: bold;
+      font-family: sans-serif;
+      height: 48px;
+      font-size: 24px;
+      text-align: center;
+      line-height: 48px;
+      margin-top: 0px; 
+      }
+
+    .form-inner{
+      border-top: 2px solid #eee;
+      background-color: white;
+      padding: 64px;
+      height: 1065px;
+
+      p{
+        font-size: 14px;
+        color: #333333;
+        margin-top: 8px;
+      }
+
+      .form-group{
+        margin-top: 40px;
+
+        input{
+          width: 540px;
+          margin-top: 8px;
+          height: 20px;
+          padding: 10px 16px 8px;
+        }
+
+        label{
+          font-weight: bold;
+          font-size: 14px;
+        }
+
+        span{
+          font-size: 12px;
+          color: #FFF;
+          background-color: #C0C0C0;
+          padding: 2px 4px;
+        }
+
+        .select-wrap{
+          margin-top: 8px;
+
+
+          select{
+            width: 570px;
+            height: 43px;
+            padding: 10px 16px 8px;
+          }
+        }
+
+        button{
+          width: 572px;
+          height: 50px;
+          font-size: 14px;
+          color: #FFF;
+          margin-bottom: 30px;
+          background-color: #ea352d;
+        }
+      }
+
+      .text-right{
+        margin-top: 10px;
+        font-size: 14px;
+        color: #3399FF;
+        text-decoration: none;
+        float: right;
+
+      a{
+        font-size: 14px;
+        color: #3399FF;
+        text-decoration: none;
+        float: right;
+
+        }
+      }
+
+    }
+
+
+
+  }
 }

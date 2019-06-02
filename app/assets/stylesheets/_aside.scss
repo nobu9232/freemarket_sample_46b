@@ -5,17 +5,20 @@
   background-position: center;
   background-size: cover; 
   color: #fff;
+
   .app-bar__contents {
     height: 260px;
     width: 750px;
     margin: auto;
     position: relative;
+
     .app-bar__contents-inner {
       height: 166px;
       width: 420px;
       top: 47px;
       position: absolute;
       float: left;
+
       h2 {
         height: 33px;
         font-size: 24px;
@@ -23,25 +26,30 @@
         line-height: 1.4;
         margin: 0;
       }
+
       p {
         font-size: 35px;
         height: 35px;
       }
+
       .app-bar__contents-inner-icon {
         width: 420px;
         height: 68px;
         margin-top: 30px; 
+
         figure {
           width: 68px;
           height: 68px;
           float: left;
         }
+
         ul {
           display: block;
           width: 300px;
           height: 68px;
           margin-left: 8px;
           float: left;
+
           li {
             float: left;
             margin: 15px 0 0 16px;
@@ -49,6 +57,7 @@
         }
       }
     }
+    
     figure {
       height: 260px;
       width: 300px;

@@ -1,0 +1,163 @@
+.site-header {
+  width: 100%;
+  height: 100px;
+  display: block;
+  background-color: #fff;
+  border-bottom: 0.5px solid #eeeeee;
+
+  .header-contents {
+    width: 1020px;
+    margin: 0 auto;
+    padding: 8px 0 0;
+
+    &__top { 
+      width: 100%;
+      height: 40px;
+
+      a {
+        width: 134px;
+        height: 36px;
+        display: block;
+        padding: 2px 0;
+        float: left;
+      }
+
+      form {
+        width: 841px;
+        height: 100%;
+        margin-left: 45px;
+        float: left;
+        position: relative;
+
+        .input-box__text {
+          width: 100%;
+          height: 40px;
+          padding: 0 42px 0 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: #f5f5f5;
+          font-size: 16px;
+        }
+
+        .input-box__label {
+          position: absolute;
+          top: 0;
+          right: 0;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          background-color: rgb(102, 102, 102);
+          cursor: pointer;
+
+          .fa {
+            width: 40px;
+            height: 40px;
+            color: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    &__nav {
+      width: 100%;
+      height: 44px;
+      margin: 8px 0 0;
+      color: #333;
+      clear: both;
+
+      .nav-left {
+        height: 44px;
+        display: inline-block;
+        font-weight: bold;
+        font-size: 13px;
+        
+        li {
+          height: 100%;
+          margin-top: 10px;
+          display: inline-block;
+        }
+        .nav-left__category {
+          height: 34px;
+          padding: 0 11px 0 0;
+        }
+
+        .nav-left__brand {
+          height: 34px;
+          padding: 0 0 0 11px;
+        }
+
+        .fa {
+          color: red;
+          margin-right: 4px;
+        }
+
+        a {
+          color: #000;
+          text-decoration: none;
+        }
+
+        a:hover {
+          color: #0099e8;
+        }
+      }
+
+      .nav-right {
+        height: 44px;
+        font-size: 14px;
+        float: right;
+
+        li {
+          height: 34px;
+          float: left;
+        }
+
+        .nav-right__news {
+          padding: 0 14px  0;
+          margin: 10px 0 0 0;
+        }
+
+        .nav-right__To-do-list {
+          padding: 0 14px 0;
+          margin: 10px 0 0 0;
+        }
+
+        .nav-right__mypage {
+          position: relative;
+          padding: 0 0 0 14px;
+          margin: 10px 0 0;
+        }
+
+        .fa {
+          color: #ccc;
+          margin-right: 4px;
+          font-size: 20px;
+        }
+
+        a {
+          color: #000;
+          text-decoration: none;
+          margin-left: 10px;
+        }
+
+        a:hover {
+          color: #0099e8;
+        }
+
+        .mypage-face {
+          position: absolute;
+          left: 0;
+          bottom: 10px;
+          border-radius: 50%;
+          font-size: 20px;
+        }
+
+        span {
+          margin-left: 20px;
+        }
+        
+      }
+    }
+  }
+}

@@ -97,7 +97,7 @@ foreign_key:true, foreign_key:true|
 - belongs_to :buyer_user, class_name: "User"
   
  
-## followersテーブル○
+## followersテーブル
 |------|----|-------|
 
 ### Association

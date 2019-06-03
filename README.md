@@ -114,7 +114,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :follower
 
 
-## transaction_groupsテーブル
+## deal_groupsテーブル
 |------|----|-------|
 |seller_user_id|references|null: false, foreign_key:true|
 |buyer_user_id|references|null: false, foreign_key:true|
@@ -126,9 +126,9 @@ foreign_key:true, foreign_key:true|
 - belongs_to :product
 
 
-## transaction_messagesテーブル
+## deal_messagesテーブル
 |------|----|-------|
-|transaction_group_id|references|null: false, foreign_key:true|
+|deal_group_id|references|null: false, foreign_key:true|
 |seller_user_id|references|null: false, foreign_key:true|
 |buyer_user_id|references|null: false, foreign_key:true|
 |content|text|null: false|
@@ -139,14 +139,14 @@ foreign_key:true, foreign_key:true|
 - belongs_to :transaciton_group
 
 
-## transaction_groups_usersテーブル
+## deal_groups_usersテーブル
 |------|----|-------|
-|transaction_group_id|references|null: false, foreign_key:true|
+|deal_group_id|references|null: false, foreign_key:true|
 |seller_user_id|references|null: false, foreign_key:true| 
 |buyer_user_id|references|null: false, foreign_key:true|
 
 ### Association
-- belongs_to :transaction_group
+- belongs_to :deal_group
 - belongs_to :seller_user, class_name: "User"
 - belongs_to :buyer_user, class_name: "User"
 
@@ -158,7 +158,7 @@ foreign_key:true, foreign_key:true|
 - has_many :users, through: :block_lists_users
 - has_many :block_lists_users
 
-## block_lists_usersテーブル
+## block_lists_usersテーブル○
 |------|----|-------|
 |block_lists_id|references|null: false, foreign_key:true|
 |user_id|references|null: false, foreign_key:true|
@@ -167,7 +167,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :user 
 -  belongs_to :block_list
 
-## productsテーブル○
+## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -189,15 +189,15 @@ foreign_key:true, foreign_key:true|
 - belongs_to :brand
 - has_many :product_comments
 - has_many :likes
-- has_many :transaction_groups, through: :transaction_groups_users
-- has_many :transaction_groups_users
-- has_many :transacrion_messages
+- has_many :deal_groups, through: :deal_groups_users
+- has_many :deal_groups_users
+- has_many :deal_messages
 - has_many :product_images
 - has_one :product_status
 - has_one :product_order
 
 
-## product_statusテーブル◯
+## product_statusテーブル
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |status|string|null: false|→下書き、出品中、落札（振込待ち）、振込済み（売上確定）、発送済み、売上振込済み
@@ -206,7 +206,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :product
 
 
-## ordersテーブル
+## ordersテーブル◯
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |seller_user_id|references|null: false, foreign_key:true| 
@@ -217,7 +217,7 @@ foreign_key:true, foreign_key:true|
 - belongs_to :buyer_user, class_name: "User"
 - belongs_to :product
 
-## product_imagesテーブル○
+## product_imagesテーブル
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |images|string|null: false|
@@ -226,7 +226,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :product
 
 
-## categoriesテーブル○
+## categoriesテーブル
 |------|----|-------|
 |category_name|string|null: false, unique:true|
 |parent_id|integer||
@@ -243,7 +243,7 @@ foreign_key:true, foreign_key:true|
 -  has_many :products
 
 
-## likesテーブル○
+## likesテーブル
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |user_id|references|null: false, foreign_key:true|
@@ -253,7 +253,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :user
 
 
-## product_commentsテーブル○
+## product_commentsテーブル
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |user_id|references|null: false, foreign_key:true|
@@ -264,7 +264,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :user
 
 
-## noticesテーブル○
+## noticesテーブル
 |------|----|-------|
 |user_id|references|null: false, foreign_key:true|
 |content|text|null: false|
@@ -273,7 +273,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :user
 
 
-## newsテーブル○
+## newsテーブル
 |------|----|-------|
 |content|text|null: false|
 

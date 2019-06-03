@@ -1,0 +1,191 @@
+* {
+  text-decoration: none;
+  font-size: 10pt;
+  color: black;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+a {
+  display: block;
+
+  &:hover {
+    opacity: .7;
+  }
+}
+
+.wrapper {
+  padding-top: 40px;
+  background-color: #f3f3f3;
+  float: left;
+  width: 59vw;
+
+  .content {
+    width: 700px;
+  
+    .user {
+      width: 100%;
+      background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?17794984);
+      
+      &__img {
+        width: 60px;
+        margin: 0 auto;
+        padding-top: 30px;
+    
+        & img {
+          width: 60px;
+          height: 60px;  
+          border-radius: 50%;
+        }
+      }
+    
+      &__name {
+        text-align: center;
+      
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    
+      &__achievement {
+        display: flex;
+        justify-content: space-between;
+        width: 20%;
+        margin: 8px auto 0;
+        padding-bottom: 20px;
+    
+        &--review {
+          display: flex;
+        }
+      
+        &--count-of-products {
+          display: flex;
+        }
+      
+      }
+    }
+    
+    .list {
+      margin-bottom: 40px;
+      background: #fff;
+
+      .list-header {
+        height: 72px;
+        padding: 0 16px;
+        background: #fafafa;
+        display: flex;
+        align-items: center;
+
+        h1 {
+          font-size: 16px;
+        }
+      }
+    
+      .list-tabs {
+        display: flex;
+        justify-content: space-between;
+    
+        &__title {
+          background: #eee;
+          width: 50%;
+    
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 74px;
+
+            h1 {
+              font-size: 16px;
+            }
+          }
+    
+          &.active {
+            background: #fff;
+            border-top: #ea352d solid 2px;
+          }  
+        }
+    
+      }
+    
+      .list-body {
+        display: none;
+    
+        &.active {
+          display: block;
+        }
+        .list-element {
+          border-bottom: #eee solid 1px;
+    
+          a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+
+            &:hover {
+              background: #fafafa;
+              opacity: 1;
+            }
+
+          }
+    
+          &__image {
+            & img {
+              width: 48px;
+              height: 48px;
+            }
+          }
+    
+          &__content {
+            width: 90%;
+    
+            &-text {
+    
+            }
+    
+            &-time {
+              display: flex;
+              align-items: center;
+            }
+    
+            &-status {
+              display: inline-block;
+    
+              &.awaiting {
+                background: #0099eb;
+              }
+    
+              & p {
+                color: #fff;
+              }
+    
+            }
+          }
+    
+          &__arrow {
+    
+          }
+        }
+      }
+    
+      .list-more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #eee;
+          margin: 16px;
+          height: 56px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

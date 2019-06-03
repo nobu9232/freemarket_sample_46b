@@ -78,7 +78,6 @@ Things you may want to cover:
 |expiration_date(year)|integer|null:false|
 |expiration_date(month)|integer|null:false| 
 |security_code|integer|null:false|
-|first_name_kana (fullwidth)|string|null:false|
 
 ### Association
 - belongs_to :user
@@ -88,8 +87,7 @@ Things you may want to cover:
 |------|----|-------|
 |rate_scale|integer|null: false|
 |content|text|null: false|
-|seller_user_id|references|null:false,
-foreign_key:true, foreign_key:true|
+|seller_user_id|references|null:false, foreign_key:true|
 |buyer_user_id|references|null:false, foreign_key:true| 
 
 ### Association
@@ -124,48 +122,27 @@ foreign_key:true, foreign_key:true|
 - belongs_to :seller_user, class_name: "User"
 - belongs_to :buyer_user, class_name: "User"
 - belongs_to :product
+- has_many :deal_messages
 
 
 ## deal_messagesテーブル
 |------|----|-------|
 |deal_group_id|references|null: false, foreign_key:true|
-|seller_user_id|references|null: false, foreign_key:true|
-|buyer_user_id|references|null: false, foreign_key:true|
 |content|text|null: false|
 
 ### Association
-- belongs_to :seller_user, class_name: "User"
-- belongs_to :buyer_user, class_name: "User"
-- belongs_to :transaciton_group
-
-
-## deal_groups_usersテーブル
-|------|----|-------|
-|deal_group_id|references|null: false, foreign_key:true|
-|seller_user_id|references|null: false, foreign_key:true| 
-|buyer_user_id|references|null: false, foreign_key:true|
-
-### Association
 - belongs_to :deal_group
-- belongs_to :seller_user, class_name: "User"
-- belongs_to :buyer_user, class_name: "User"
 
 
 ## block_listsテーブル
 |------|----|-------|
-
-### Association
-- has_many :users, through: :block_lists_users
-- has_many :block_lists_users
-
-## block_lists_usersテーブル○
-|------|----|-------|
-|block_lists_id|references|null: false, foreign_key:true|
 |user_id|references|null: false, foreign_key:true|
+|blocked_user_id|references|null: false, foreign_key:true|
 
 ### Association
--  belongs_to :user 
--  belongs_to :block_list
+- belongs_to :user
+- belongs_to :blocked_user, class_name: "User"
+
 
 ## productsテーブル
 
@@ -205,18 +182,6 @@ foreign_key:true, foreign_key:true|
 ### Association
 -  belongs_to :product
 
-
-## ordersテーブル◯
-|------|----|-------|
-|product_id|references|null: false, foreign_key:true|
-|seller_user_id|references|null: false, foreign_key:true| 
-|buyer_user_id|references|null: false, foreign_key:true|
-
-### Association
-- belongs_to :seller_user, class_name: "User"
-- belongs_to :buyer_user, class_name: "User"
-- belongs_to :product
-
 ## product_imagesテーブル
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
@@ -228,15 +193,15 @@ foreign_key:true, foreign_key:true|
 
 ## categoriesテーブル
 |------|----|-------|
-|category_name|string|null: false, unique:true|
+|name|string|null: false, unique:true|
 |parent_id|integer||
 
 ### Association
 -  has_many :products
 
-## brandsテーブル○
+## brandsテーブル
 |------|----|-------|
-|brand_name|string|null: false, unique:true|
+|name|string|null: false, unique:true|
 |parent_id|integer||
 
 ### Association

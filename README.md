@@ -46,8 +46,8 @@ Things you may want to cover:
 - has_many :followers_users
 - has_many :rates
 - has_many :notices
-- has_one :credit_card_information_lists
-- has_one :personal_information_lists
+- has_one :credit_card_information_list
+- has_one :personal_information_list
 
 
 ## personal_information_listsテーブル
@@ -146,7 +146,7 @@ foreign_key:true, foreign_key:true|
 |buyer_user_id|references|null: false, foreign_key:true|
 
 ### Association
--  belongs_to :transaction_group
+- belongs_to :transaction_group
 - belongs_to :seller_user, class_name: "User"
 - belongs_to :buyer_user, class_name: "User"
 
@@ -165,7 +165,7 @@ foreign_key:true, foreign_key:true|
 
 ### Association
 -  belongs_to :user 
--  belongs_to :block_lists
+-  belongs_to :block_list
 
 ## productsテーブル○
 
@@ -194,7 +194,7 @@ foreign_key:true, foreign_key:true|
 - has_many :transacrion_messages
 - has_many :product_images
 - has_one :product_status
-- has_one :product_orders
+- has_one :product_order
 
 
 ## product_statusテーブル◯
@@ -215,7 +215,7 @@ foreign_key:true, foreign_key:true|
 ### Association
 - belongs_to :seller_user, class_name: "User"
 - belongs_to :buyer_user, class_name: "User"
--  belongs_to :product
+- belongs_to :product
 
 ## product_imagesテーブル○
 |------|----|-------|

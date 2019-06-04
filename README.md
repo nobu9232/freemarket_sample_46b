@@ -1,28 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 ## usersテーブル
 
 |Column|Type|Options|
@@ -37,17 +14,15 @@ Things you may want to cover:
 - has_many :products
 - has_many :product_comments
 - has_many :likes
-- has_many :transaction_groups, through: :transaction_groups_users
-- has_many :transaction_groups_users
-- has_many :transacrion_messages
-- has_many :notices
+- has_many :deal_groups
+- has_many :deal_messages
+- has_many :notices, :dependent => :destroy
 - has_many :block_lists, through: :block_lists_users
 - has_many :followers, through: :followers_users
 - has_many :followers_users
 - has_many :rates
-- has_many :notices
-- has_one :credit_card_information_list
-- has_one :personal_information_list
+- has_one :credit_card_information_list, :dependent => :destroy
+- has_one :personal_information_list, :dependent => :destroy
 
 
 ## personal_information_listsテーブル
@@ -99,7 +74,7 @@ Things you may want to cover:
 |------|----|-------|
 
 ### Association
-- has_many :users, through: :followers_users
+- has_many :users, through: :followers_users, :dependent => :destroy
 - has_many :followers_users
 
 ## followers_usersテーブル
@@ -122,7 +97,7 @@ Things you may want to cover:
 - belongs_to :seller_user, class_name: "User"
 - belongs_to :buyer_user, class_name: "User"
 - belongs_to :product
-- has_many :deal_messages
+- has_many :deal_messages, :dependent => :destroy
 
 
 ## deal_messagesテーブル
@@ -164,14 +139,11 @@ Things you may want to cover:
 ### Association
 - belongs_to :category
 - belongs_to :brand
-- has_many :product_comments
-- has_many :likes
-- has_many :deal_groups, through: :deal_groups_users
-- has_many :deal_groups_users
-- has_many :deal_messages
-- has_many :product_images
-- has_one :product_status
-- has_one :product_order
+- has_many :product_comments, :dependent => :destroy
+- has_many :likes, :dependent => :destroy
+- has_one :deal_group, :dependent => :destroy
+- has_many :product_images, :dependent => :destroy
+- has_one :product_status, :dependent => :destroy
 
 
 ## product_statusテーブル

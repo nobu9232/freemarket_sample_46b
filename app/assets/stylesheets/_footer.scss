@@ -31,13 +31,13 @@
       display: block;
       float: left;
 
-      .footer-nav__terms--left {
+      &__terms--left {
         padding: 0 10px 0 0;
         width: 45%;
         float: left;
       }
 
-      .footer-nav__terms--right {
+      &__terms--right {
         float: left;
         padding-left: 10px;
         width: 45%;

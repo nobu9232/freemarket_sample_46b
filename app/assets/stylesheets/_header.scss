@@ -78,12 +78,12 @@
           margin-top: 10px;
           display: inline-block;
         }
-        .nav-left__category {
+        &__category {
           height: 34px;
           padding: 0 11px 0 0;
         }
 
-        .nav-left__brand {
+        &__brand {
           height: 34px;
           padding: 0 0 0 11px;
         }
@@ -113,17 +113,17 @@
           float: left;
         }
 
-        .nav-right__news {
+        &__news {
           padding: 0 14px  0;
           margin: 10px 0 0 0;
         }
 
-        .nav-right__To-do-list {
+        &__To-do-list {
           padding: 0 14px 0;
           margin: 10px 0 0 0;
         }
 
-        .nav-right__mypage {
+        &__mypage {
           position: relative;
           padding: 0 0 0 14px;
           margin: 10px 0 0;

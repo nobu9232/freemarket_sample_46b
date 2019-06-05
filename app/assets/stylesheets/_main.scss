@@ -63,7 +63,7 @@
           height: 78px;
           padding: 16px;
 
-          .boxs-body__name {
+          &__name {
             height: 48px;
             display: block;
             overflow: hidden;
@@ -71,13 +71,13 @@
             font-size: 16px;
           }
 
-          .boxs-body__price {
+          &__price {
             margin-top: 8px;
             font-size: 13px;
             font-weight: bold;
           }
 
-          .boxs-body__tax {
+          &__tax {
             font-size: 10px;
             line-height: 2px;
           }

@@ -16,13 +16,13 @@
 - has_many :likes
 - has_many :deal_groups
 - has_many :deal_messages
-- has_many :notices, :dependent => :destroy
+- has_many :notices, dependent: :destroy
 - has_many :block_lists, through: :block_lists_users
 - has_many :followers, through: :followers_users
 - has_many :followers_users
 - has_many :rates
-- has_one :credit_card_information_list, :dependent => :destroy
-- has_one :personal_information_list, :dependent => :destroy
+- has_one :credit_card_information_list, dependent: :destroy
+- has_one :personal_information_list, dependent: :destroy
 
 
 ## personal_information_listsテーブル
@@ -74,7 +74,7 @@
 |------|----|-------|
 
 ### Association
-- has_many :users, through: :followers_users, :dependent => :destroy
+- has_many :users, through: :followers_users, :dependent: :destroy
 - has_many :followers_users
 
 ## followers_usersテーブル
@@ -97,7 +97,7 @@
 - belongs_to :seller_user, class_name: "User"
 - belongs_to :buyer_user, class_name: "User"
 - belongs_to :product
-- has_many :deal_messages, :dependent => :destroy
+- has_many :deal_messages, dependent: :destroy
 
 
 ## deal_messagesテーブル
@@ -139,11 +139,11 @@
 ### Association
 - belongs_to :category
 - belongs_to :brand
-- has_many :product_comments, :dependent => :destroy
-- has_many :likes, :dependent => :destroy
-- has_one :deal_group, :dependent => :destroy
-- has_many :product_images, :dependent => :destroy
-- has_one :product_status, :dependent => :destroy
+- has_many :product_comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_one :deal_group, dependent => :destroy
+- has_many :product_images, dependent: :destroy
+- has_one :product_status, dependent: :destroy
 
 
 ## product_statusテーブル

@@ -19,19 +19,15 @@ i.material-icons{
 
 
 
-
-.wrapper{
-  background-color: #f3f3f3;
-  float: left;
-  height: 1332px;
-  width: 920px;
-
-
-
   .content{
-    margin-top: 40px;
+    margin: 40px 0 88px;
     width: 700px;
     background-color: white;
+    float:left;
+    width: 500px;
+    //width: calc(100vw - 500px);
+
+
 
     h2{
       font-weight: bold;
@@ -55,7 +51,7 @@ i.material-icons{
         margin-top: 8px;
       }
 
-      .form-group{
+      &__group{
         margin-top: 40px;
 
         input{
@@ -119,4 +115,3 @@ i.material-icons{
 
 
   }
-}

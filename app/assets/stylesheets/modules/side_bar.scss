@@ -30,7 +30,7 @@ i.material-icons{
       list-style: none;
       margin-top: 40px;
 
-      .mypage-nav-title{
+      &__title{
         font-weight: bold;
         font-family: sans-serif;
         margin-block-start: 3em;
@@ -41,7 +41,7 @@ i.material-icons{
       }
 
 
-      .mypage-nav-list-item{
+      &__item{
         height: 48px;
         margin-top: 2px;
         background-color: white;
@@ -59,30 +59,30 @@ i.material-icons{
           }
         }
 
-      .mypage-nav-list-item:hover{
+      &__item:hover{
         background-color: #fafafa;
         
         i.material-icons{
         color: #000;
         }
       }
-        .mypage-nav-list-active{
-          background-color: #eee;
-          height: 48px;
-          margin-top: 2px;
-          line-height: 48px;
-          cursor: pointer;
-          position: relative;
+      &__item--active{
+        background-color: #eee;
+        height: 48px;
+        margin-top: 2px;
+        line-height: 48px;
+        cursor: pointer;
+        position: relative;
 
-          a{
-            color: #000;
-            font-weight: bold;
-            font-size: 14px;
-            font-family: sans-serif;
-            text-decoration: none;
-            margin-left: 16px;
-            }
+        a{
+          color: #000;
+          font-weight: bold;
+          font-size: 14px;
+          font-family: sans-serif;
+          text-decoration: none;
+          margin-left: 16px;
           }
+        }
       }
   }
 }

@@ -82,12 +82,9 @@ GEM
       mime-types (>= 1.16)
     childprocess (1.0.1)
       rake (< 13.0)
-<<<<<<< HEAD
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
-=======
->>>>>>> origin/toppage
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -108,16 +105,11 @@ GEM
       html2haml
     erubi (1.8.0)
     erubis (2.7.0)
-<<<<<<< HEAD
     execjs (2.7.0)
     ffi (1.10.0)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
     excon (0.64.0)
-=======
-    excon (0.64.0)
-    execjs (2.7.0)
->>>>>>> origin/toppage
     ffi (1.11.1)
     fog-aws (3.5.0)
       fog-core (~> 2.1)

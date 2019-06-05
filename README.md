@@ -141,7 +141,7 @@
 - belongs_to :brand
 - has_many :product_comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
-- has_one :deal_group, dependent => :destroy
+- has_one :deal_group, dependent: :destroy
 - has_many :product_images, dependent: :destroy
 - has_one :product_status, dependent: :destroy
 

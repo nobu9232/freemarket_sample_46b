@@ -1,254 +1,247 @@
-.wrapper
-  .content
-    .user
-      %a(href="")
-        .user__img
-          %img(src="https://pbs.twimg.com/profile_images/1198425104/_________reasonably_small.jpg" alt="profile_img")/
-        .user__name.bold
-          %pボボボーボ・ボーボボ
-        .user__achievement
-          .user__achievement--review
-            %p評価&nbsp;&nbsp;
-            %span.bold&=9999
-          .user__achievement--count-of-products
-            %p出品数&nbsp;&nbsp;
-            %span.bold&=1
-    .list
-      %ul.list-tabs
-        %li.list-tabs__title.active
-          %a(href="")
-            %h1.boldお知らせ
-        %li.list-tabs__title
-          %a(href="")
-            %h1.boldやることリスト
-      %ul.list-body.active
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
-            .list-element__content
-              .list-element__content-text
-                %p&="100万円の請求がきましたwwwwwww"
-              .list-element__content-time
-                = fa_icon 'history'
-                %p１時間前
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
-            .list-element__content
-              .list-element__content-text
-                %p&="100万円の請求がきましたwwwwwww"
-              .list-element__content-time
-                = fa_icon 'history'
-                %p１時間前
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
-            .list-element__content
-              .list-element__content-text
-                %p&="100万円の請求がきましたwwwwwww"
-              .list-element__content-time
-                = fa_icon 'history'
-                %p１時間前
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
-            .list-element__content
-              .list-element__content-text
-                %p&="100万円の請求がきましたwwwwwww"
-              .list-element__content-time
-                = fa_icon 'history'
-                %p１時間前
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
-            .list-element__content
-              .list-element__content-text
-                %p&="100万円の請求がきましたwwwwwww"
-              .list-element__content-time
-                = fa_icon 'history'
-                %p１時間前
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-      %ul.list-body
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
-            .list-element__content
-              .list-element__content-text
-                %p&="100万円の請求がきましたwwwwwww"
-              .list-element__content-time
-                = fa_icon 'history'
-                %p１時間前
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
-            .list-element__content
-              .list-element__content-text
-                %p&="100万円の請求がきましたwwwwwww"
-              .list-element__content-time
-                = fa_icon 'history'
-                %p１時間前
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
-            .list-element__content
-              .list-element__content-text
-                %p&="100万円の請求がきましたwwwwwww"
-              .list-element__content-time
-                = fa_icon 'history'
-                %p１時間前
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
-            .list-element__content
-              .list-element__content-text
-                %p&="100万円の請求がきましたwwwwwww"
-              .list-element__content-time
-                = fa_icon 'history'
-                %p１時間前
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
-            .list-element__content
-              .list-element__content-text
-                %p&="100万円の請求がきましたwwwwwww"
-              .list-element__content-time
-                = fa_icon 'history'
-                %p１時間前
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-      .list-more
-        %a.list-more__button(href="")
-          %h1一覧を見る
+.content
+  .user
+    = link_to do
+      .user__img
+        %img(src="https://pbs.twimg.com/profile_images/1198425104/_________reasonably_small.jpg" alt="profile_img")/
+      .user__name.bold
+        %pボボボーボ・ボーボボ
+      .user__achievement
+        .user__achievement--review
+          %p評価&nbsp;&nbsp;
+          %span.bold&=9999
+        .user__achievement--count-of-products
+          %p出品数&nbsp;&nbsp;
+          %span.bold&=1
+  .list
+    %ul.list-tabs
+      %li.list-tabs__title.active
+        =link_to "お知らせ"
+      %li.list-tabs__title
+        = link_to "やることリスト"
+    %ul.list-body.active
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
+          .list-element__content
+            .list-element__content-text
+              %p&="100万円の請求がきましたwwwwwww"
+            .list-element__content-time
+              = fa_icon 'history'
+              %p１時間前
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
+          .list-element__content
+            .list-element__content-text
+              %p&="100万円の請求がきましたwwwwwww"
+            .list-element__content-time
+              = fa_icon 'history'
+              %p１時間前
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
+          .list-element__content
+            .list-element__content-text
+              %p&="100万円の請求がきましたwwwwwww"
+            .list-element__content-time
+              = fa_icon 'history'
+              %p１時間前
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
+          .list-element__content
+            .list-element__content-text
+              %p&="100万円の請求がきましたwwwwwww"
+            .list-element__content-time
+              = fa_icon 'history'
+              %p１時間前
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
+          .list-element__content
+            .list-element__content-text
+              %p&="100万円の請求がきましたwwwwwww"
+            .list-element__content-time
+              = fa_icon 'history'
+              %p１時間前
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+    %ul.list-body
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
+          .list-element__content
+            .list-element__content-text
+              %p&="100万円の請求がきましたwwwwwww"
+            .list-element__content-time
+              = fa_icon 'history'
+              %p１時間前
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
+          .list-element__content
+            .list-element__content-text
+              %p&="100万円の請求がきましたwwwwwww"
+            .list-element__content-time
+              = fa_icon 'history'
+              %p１時間前
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
+          .list-element__content
+            .list-element__content-text
+              %p&="100万円の請求がきましたwwwwwww"
+            .list-element__content-time
+              = fa_icon 'history'
+              %p１時間前
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
+          .list-element__content
+            .list-element__content-text
+              %p&="100万円の請求がきましたwwwwwww"
+            .list-element__content-time
+              = fa_icon 'history'
+              %p１時間前
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="https://static.mercdn.net/images/mercari_profile.png" alt="mercari_img")/
+          .list-element__content
+            .list-element__content-text
+              %p&="100万円の請求がきましたwwwwwww"
+            .list-element__content-time
+              = fa_icon 'history'
+              %p１時間前
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+    .list-more
+      =link_to "一覧を見る","/" , class: "list-more__button"
 
-    .list
-      .list-header
-        %h1.bold購入した商品
-      %ul.list-tabs
-        %li.list-tabs__title.active
-          %a(href="")
-            %h1.bold取引中
-        %li.list-tabs__title
-          %a(href="")
-            %h1.bold過去の取引
-      %ul.list-body.active
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
-            .list-element__content
-              .list-element__content-text
-                %p「トラウトサーモン」を購入しました。受取評価をしてください
-              .list-element__content-status.awaiting
-                %p評価待ち
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
-            .list-element__content
-              .list-element__content-text
-                %p「トラウトサーモン」を購入しました。受取評価をしてください
-              .list-element__content-status.awaiting
-                %p評価待ち
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
-            .list-element__content
-              .list-element__content-text
-                %p「トラウトサーモン」を購入しました。受取評価をしてください
-              .list-element__content-status.awaiting
-                %p評価待ち
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
-            .list-element__content
-              .list-element__content-text
-                %p「トラウトサーモン」を購入しました。受取評価をしてください
-              .list-element__content-status.awaiting
-                %p評価待ち
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
-            .list-element__content
-              .list-element__content-text
-                %p「トラウトサーモン」を購入しました。受取評価をしてください
-              .list-element__content-status.awaiting
-                %p評価待ち
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-      %ul.list-body
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
-            .list-element__content
-              .list-element__content-text
-                %p「トラウトサーモン」を購入しました。受取評価をしてください
-              .list-element__content-status.awaiting
-                %p評価待ち
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
-            .list-element__content
-              .list-element__content-text
-                %p「トラウトサーモン」を購入しました。受取評価をしてください
-              .list-element__content-status.awaiting
-                %p評価待ち
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
-            .list-element__content
-              .list-element__content-text
-                %p「トラウトサーモン」を購入しました。受取評価をしてください
-              .list-element__content-status.awaiting
-                %p評価待ち
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
-            .list-element__content
-              .list-element__content-text
-                %p「トラウトサーモン」を購入しました。受取評価をしてください
-              .list-element__content-status.awaiting
-                %p評価待ち
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-        %li.list-element
-          %a(href="")
-            .list-element__image
-              %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
-            .list-element__content
-              .list-element__content-text
-                %p「トラウトサーモン」を購入しました。受取評価をしてください
-              .list-element__content-status.awaiting
-                %p評価待ち
-            = fa_icon 'chevron-right', class: 'list-element__arrow'
-      .list-more
-        %a.list-more__button(href="")
-          %h1一覧を見る
+  .list
+    .list-header
+      %h1.bold購入した商品
+    %ul.list-tabs
+      %li.list-tabs__title.active
+        = link_to "取引中"
+      %li.list-tabs__title
+        = link_to "過去の取引"
+    %ul.list-body.active
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
+          .list-element__content
+            .list-element__content-text
+              %p「トラウトサーモン」を購入しました。受取評価をしてください
+            .list-element__content-status.awaiting
+              %p評価待ち
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
+          .list-element__content
+            .list-element__content-text
+              %p「トラウトサーモン」を購入しました。受取評価をしてください
+            .list-element__content-status.awaiting
+              %p評価待ち
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
+          .list-element__content
+            .list-element__content-text
+              %p「トラウトサーモン」を購入しました。受取評価をしてください
+            .list-element__content-status.awaiting
+              %p評価待ち
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
+          .list-element__content
+            .list-element__content-text
+              %p「トラウトサーモン」を購入しました。受取評価をしてください
+            .list-element__content-status.awaiting
+              %p評価待ち
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
+          .list-element__content
+            .list-element__content-text
+              %p「トラウトサーモン」を購入しました。受取評価をしてください
+            .list-element__content-status.awaiting
+              %p評価待ち
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+    %ul.list-body
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
+          .list-element__content
+            .list-element__content-text
+              %p「トラウトサーモン」を購入しました。受取評価をしてください
+            .list-element__content-status.awaiting
+              %p評価待ち
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
+          .list-element__content
+            .list-element__content-text
+              %p「トラウトサーモン」を購入しました。受取評価をしてください
+            .list-element__content-status.awaiting
+              %p評価待ち
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
+          .list-element__content
+            .list-element__content-text
+              %p「トラウトサーモン」を購入しました。受取評価をしてください
+            .list-element__content-status.awaiting
+              %p評価待ち
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
+          .list-element__content
+            .list-element__content-text
+              %p「トラウトサーモン」を購入しました。受取評価をしてください
+            .list-element__content-status.awaiting
+              %p評価待ち
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+      %li.list-element
+        = link_to do
+          .list-element__image
+            %img(src="http://image.rakuten.co.jp/auc-hasegawasengyo/cabinet/03126694/sengyo/img62656263.jpg" alt="salmon_img")/
+          .list-element__content
+            .list-element__content-text
+              %p「トラウトサーモン」を購入しました。受取評価をしてください
+            .list-element__content-status.awaiting
+              %p評価待ち
+          = fa_icon 'chevron-right', class: 'list-element__arrow'
+    .list-more
+      =link_to "一覧を見る","/" , class: "list-more__button"

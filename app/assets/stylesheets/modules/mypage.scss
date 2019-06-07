@@ -27,6 +27,10 @@ a {
   
     &__name {
       text-align: center;
+
+      p {
+        font-weight: 600;
+      }
     
       &:hover {
         text-decoration: underline;
@@ -39,6 +43,10 @@ a {
       width: 20%;
       margin: 8px auto 0;
       padding-bottom: 20px;
+
+      span {
+        font-weight: 600;
+      }
   
       &--review {
         display: flex;
@@ -124,11 +132,7 @@ a {
   
         &__content {
           width: 90%;
-  
-          &-text {
-  
-          }
-  
+    
           &-time {
             display: flex;
             align-items: center;
@@ -146,10 +150,6 @@ a {
             }
   
           }
-        }
-  
-        &__arrow {
-  
         }
       }
     }

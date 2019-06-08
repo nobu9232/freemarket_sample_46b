@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   end
 
   # sign_outアクション仮置き
-  def sign_out
-  
+  def sign_out  
   end
+
 end

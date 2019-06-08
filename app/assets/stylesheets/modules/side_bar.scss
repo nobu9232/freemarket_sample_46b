@@ -17,10 +17,10 @@ i.material-icons{
 .side-bar{
   width: 280px;
 
-  &__list{
+  &-list{
     list-style: none;
 
-    .side-bar__title{
+    &__title{
       font-weight: bold;
       font-family: sans-serif;
       margin-block-start: 3em;
@@ -31,7 +31,7 @@ i.material-icons{
     }
 
 
-    .side-bar__list-item{
+    &__item{
       height: 48px;
       margin-top: 2px;
       background-color: white;
@@ -40,23 +40,7 @@ i.material-icons{
       position: relative;
       border-top: 0.1 solid #eee;
 
-
-      a{
-        text-decoration: none;
-        color: #333;
-        font-size: 14px;
-        margin-left: 16px;
-        }
-      }
-
-    .side-bar__list-item:hover{
-      background-color: #fafafa;
-      
-      i.material-icons{
-      color: #000;
-      }
-    }
-      .side-bar__list-active{
+      &-active{
         background-color: #eee;
         height: 48px;
         margin-top: 2px;
@@ -71,7 +55,23 @@ i.material-icons{
           font-family: sans-serif;
           text-decoration: none;
           margin-left: 16px;
-          }
         }
+      }
+
+      a{
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        margin-left: 16px;
+        }
+      }
+
+    &__item:hover{
+      background-color: #fafafa;
+      
+      i.material-icons{
+      color: #000;
+      }
     }
+  }
 }

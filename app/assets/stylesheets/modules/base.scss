@@ -1,0 +1,18 @@
+* {
+  text-decoration: none;
+  font-size: 10pt;
+  color: black;
+}
+
+.wrapper {
+  background-color: #f3f3f3;
+  width: 100vw;
+
+  .container {
+    padding-top: 40px;
+    width: 1020px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+}

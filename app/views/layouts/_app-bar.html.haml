@@ -1,0 +1,19 @@
+%aside.app-bar
+  .bar-contents
+    .bar-contents__inner
+      %h2
+        スマホでかんたんフリマアプリ
+      %p
+        今すぐ無料ダウンロード！
+      .inner-icon
+        %figure
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?3160895340", width: "68"
+        %ul
+          %li
+            = link_to root_path do
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?3160895340", width: "133", height: "40"
+          %li
+            = link_to root_path do
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?3160895340", width: "133", height: "40"
+    %figure
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?3160895340", class: '.app-bar__contents-image', height: '260px', width: '300px'

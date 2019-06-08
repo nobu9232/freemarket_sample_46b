@@ -1,0 +1,15 @@
+.content {
+  width: 700px;
+
+  .logout {
+    background: #fff;
+    display: flex;
+
+    &__btn {
+      width: 50%;
+      background: #ea352d;
+      color: #fff;
+      display: block;
+    }
+  }
+}

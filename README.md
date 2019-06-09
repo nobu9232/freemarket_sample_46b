@@ -1,29 +1,5 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-## usersテーブル○
+## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -37,20 +13,18 @@ Things you may want to cover:
 - has_many :products
 - has_many :product_comments
 - has_many :likes
-- has_many :transaction_groups, through: :transaction_groups_users
-- has_many :transaction_groups_users
-- has_many :transacrion_messages
-- has_many :notices
+- has_many :deal_groups
+- has_many :deal_messages
+- has_many :notices, dependent: :destroy
 - has_many :block_lists, through: :block_lists_users
 - has_many :followers, through: :followers_users
 - has_many :followers_users
 - has_many :rates
-- has_many :notices
-- has_one :credit_card_information_lists
-- has_one :personal_information_lists
+- has_one :credit_card_information_list, dependent: :destroy
+- has_one :personal_information_list, dependent: :destroy
 
 
-## personal_information_listsテーブル○
+## personal_information_listsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -71,25 +45,23 @@ Things you may want to cover:
 - belongs_to :user
 
 
-## credit_card_information_listsテーブル○
+## credit_card_information_listsテーブル
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |card_number|integer|null: false, unique:true|
 |expiration_date(year)|integer|null:false|
 |expiration_date(month)|integer|null:false| 
 |security_code|integer|null:false|
-|first_name_kana (fullwidth)|string|null:false|
 
 ### Association
 - belongs_to :user
 
 
-## ratesテーブル○
+## ratesテーブル
 |------|----|-------|
 |rate_scale|integer|null: false|
 |content|text|null: false|
-|seller_user_id|references|null:false,
-foreign_key:true, foreign_key:true|
+|seller_user_id|references|null:false, foreign_key:true|
 |buyer_user_id|references|null:false, foreign_key:true| 
 
 ### Association
@@ -97,14 +69,14 @@ foreign_key:true, foreign_key:true|
 - belongs_to :buyer_user, class_name: "User"
   
  
-## followersテーブル○
+## followersテーブル
 |------|----|-------|
 
 ### Association
-- has_many :users, through: :followers_users
+- has_many :users, through: :followers_users, :dependent: :destroy
 - has_many :followers_users
 
-## followers_usersテーブル○
+## followers_usersテーブル
 |------|----|-------|
 |follower_id|references|null: false, foreign_key:true|
 |user_id|references|null: false, foreign_key:true|
@@ -114,7 +86,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :follower
 
 
-## deal_groupsテーブル○
+## deal_groupsテーブル
 |------|----|-------|
 |seller_user_id|references|null: false, foreign_key:true|
 |buyer_user_id|references|null: false, foreign_key:true|
@@ -124,50 +96,29 @@ foreign_key:true, foreign_key:true|
 - belongs_to :seller_user, class_name: "User"
 - belongs_to :buyer_user, class_name: "User"
 - belongs_to :product
+- has_many :deal_messages, dependent: :destroy
 
 
 ## deal_messagesテーブル
 |------|----|-------|
 |deal_group_id|references|null: false, foreign_key:true|
-|seller_user_id|references|null: false, foreign_key:true|
-|buyer_user_id|references|null: false, foreign_key:true|
 |content|text|null: false|
 
 ### Association
-- belongs_to :seller_user, class_name: "User"
-- belongs_to :buyer_user, class_name: "User"
-- belongs_to :transaciton_group
-
-
-## deal_groups_usersテーブル
-|------|----|-------|
-|deal_group_id|references|null: false, foreign_key:true|
-|seller_user_id|references|null: false, foreign_key:true| 
-|buyer_user_id|references|null: false, foreign_key:true|
-
-### Association
 - belongs_to :deal_group
-- belongs_to :seller_user, class_name: "User"
-- belongs_to :buyer_user, class_name: "User"
 
 
-## block_listsテーブル○
+## block_listsテーブル
 |------|----|-------|
-
-### Association
-- has_many :users, through: :block_lists_users
-- has_many :block_lists_users
-
-## block_lists_usersテーブル○
-|------|----|-------|
-|block_lists_id|references|null: false, foreign_key:true|
 |user_id|references|null: false, foreign_key:true|
+|blocked_user_id|references|null: false, foreign_key:true|
 
 ### Association
--  belongs_to :user 
--  belongs_to :block_lists
+- belongs_to :user
+- belongs_to :blocked_user, class_name: "User"
 
-## productsテーブル○
+
+## productsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -187,17 +138,14 @@ foreign_key:true, foreign_key:true|
 ### Association
 - belongs_to :category
 - belongs_to :brand
-- has_many :product_comments
-- has_many :likes
-- has_many :deal_groups, through: :deal_groups_users
-- has_many :deal_groups_users
-- has_many :deal_messages
-- has_many :product_images
-- has_one :product_status
-- has_one :product_orders
+- has_many :product_comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_one :deal_group, dependent: :destroy
+- has_many :product_images, dependent: :destroy
+- has_one :product_status, dependent: :destroy
 
 
-## product_statusテーブル◯
+## product_statusテーブル
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |status|string|null: false|→下書き、出品中、落札（振込待ち）、振込済み（売上確定）、発送済み、売上振込済み
@@ -205,19 +153,7 @@ foreign_key:true, foreign_key:true|
 ### Association
 -  belongs_to :product
 
-
-## ordersテーブル◯
-|------|----|-------|
-|product_id|references|null: false, foreign_key:true|
-|seller_user_id|references|null: false, foreign_key:true| 
-|buyer_user_id|references|null: false, foreign_key:true|
-
-### Association
-- belongs_to :seller_user, class_name: "User"
-- belongs_to :buyer_user, class_name: "User"
--  belongs_to :product
-
-## product_imagesテーブル○
+## product_imagesテーブル
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |images|string|null: false|
@@ -226,24 +162,24 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :product
 
 
-## categoriesテーブル○
+## categoriesテーブル
 |------|----|-------|
-|category_name|string|null: false, unique:true|
+|name|string|null: false, unique:true|
 |parent_id|integer||
 
 ### Association
 -  has_many :products
 
-## brandsテーブル○
+## brandsテーブル
 |------|----|-------|
-|brand_name|string|null: false, unique:true|
+|name|string|null: false, unique:true|
 |parent_id|integer||
 
 ### Association
 -  has_many :products
 
 
-## likesテーブル○
+## likesテーブル
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |user_id|references|null: false, foreign_key:true|
@@ -253,7 +189,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :user
 
 
-## product_commentsテーブル○
+## product_commentsテーブル
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |user_id|references|null: false, foreign_key:true|
@@ -264,7 +200,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :user
 
 
-## noticesテーブル○
+## noticesテーブル
 |------|----|-------|
 |user_id|references|null: false, foreign_key:true|
 |content|text|null: false|
@@ -273,7 +209,7 @@ foreign_key:true, foreign_key:true|
 -  belongs_to :user
 
 
-## newsテーブル○
+## newsテーブル
 |------|----|-------|
 |content|text|null: false|
 

@@ -1,1 +1,41 @@
-%h1 はろぉわぁるど〜
+%main.main-contents
+  %section.pickup-container
+    %h2.pickup-container__header
+      ピックアップカテゴリー
+    %section.items-container
+      %h3.items-container__header
+        = link_to do
+          レディース 新着アイテム
+      = render 'tops/items'
+      %h3.items-container__header
+        = link_to do
+          メンズ 新着アイテム
+      = render 'tops/items'
+      %h3.items-container__header
+        = link_to do
+          ベビー・キッズ 新着アイテム
+      = render 'tops/items'
+      %h3.items-container__header
+        = link_to do
+          コスメ・香水・美容 新着アイテム
+      = render 'tops/items'
+  %section.pickup-container
+    %h2.pickup-container__header
+      ピックアップブランド
+    %section.items-container
+      %h3.items-container__header
+        = link_to do
+          レディース 新着アイテム
+      = render 'tops/items'
+      %h3.items-container__header
+        = link_to do
+          メンズ 新着アイテム
+      = render 'tops/items'
+      %h3.items-container__header
+        = link_to do
+          ベビー・キッズ 新着アイテム
+      = render 'tops/items'
+      %h3.items-container__header
+        = link_to do
+          コスメ・香水・美容 新着アイテム
+      = render 'tops/items'

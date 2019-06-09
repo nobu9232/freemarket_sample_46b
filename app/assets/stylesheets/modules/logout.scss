@@ -1,0 +1,21 @@
+.content {
+  width: 700px;
+
+  .logout {
+    background: #fff;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__btn {
+      width: 50%;
+      height: 50px;
+      background: #ea352d;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

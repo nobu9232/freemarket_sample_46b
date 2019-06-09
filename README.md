@@ -116,13 +116,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :blocked_user, class_name: "User"
-<<<<<<< HEAD
 
-
-=======
-
-
->>>>>>> origin/ユーザープロフィール編集ページ
 ## productsテーブル
 
 |Column|Type|Options|

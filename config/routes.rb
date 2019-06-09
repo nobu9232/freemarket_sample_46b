@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get 'users/update'
   get 'users/sign_out'
 
-  resources :users, action: :show
+  resources :users, only: :show
 end

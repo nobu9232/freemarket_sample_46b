@@ -82,4 +82,7 @@ gem 'mini_magick'
 gem 'devise'
 gem 'erb2haml'
 gem 'font-awesome-rails'
+<<<<<<< HEAD
 
+=======
+>>>>>>> master

@@ -1,18 +1,18 @@
 class UsersController < ApplicationController
 
-<<<<<<< HEAD
   def show
     # render layout: false
-=======
+  end
+
   def update
   end
   
 
-  def show
+  def card
   end
 
   def sign_out  
->>>>>>> master
+
   end
 
 end

@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
 
-<<<<<<< HEAD
   def registration
   end
-=======
+
   def update
   end
   
@@ -14,5 +13,4 @@ class UsersController < ApplicationController
   def sign_out  
   end
 
->>>>>>> master
 end

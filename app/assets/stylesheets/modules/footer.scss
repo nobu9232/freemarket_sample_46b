@@ -1,0 +1,121 @@
+.footer-area {
+  display: block;
+  padding: 0 20px 10px 20px;
+  background-color: #212121;
+
+  .footer-nav {
+    width: 1020px;
+    height: 300px;
+    margin: auto;
+
+    &__about {
+      width: 18%;
+      padding: 0 20px 0 0;
+      margin-top: 18px;
+      display: block;
+      float: left;
+    }
+
+    &__guide {
+      width: 20%;
+      padding: 0 30px 0 0;
+      margin-top: 18px;
+      display: block;
+      float: left;
+    }
+
+    &__terms {
+      box-sizing: border-box;
+      width: 42%;
+      padding: 0 30px 0 0;
+      margin-top: 18px;
+      float: left;
+
+      &--left {
+        box-sizing: border-box;
+        width: 50%;
+        padding: 0 10px 0 0;
+        float: left;
+      }
+
+      &--right {
+        box-sizing: border-box;
+        width: 50%;
+        padding-left: 10px;
+        float: left;
+      }
+    }
+
+    &__country {
+      width: auto;
+      display: block;
+      margin-top: 18px;
+      float: left;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-weight: 100;
+      color: #fff;
+    }
+
+    li {
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration-line: none;
+      font-size: 12px;
+      color: #fff ;
+      opacity: 0.7;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-icon {
+      height: 42px;
+      margin-top: 14px;
+      float: left;
+
+      a {
+        opacity: 1;
+
+        .fa {
+          box-sizing: border-box;
+          margin: 9px 18px 0 0;
+          color: #fff ;
+          font-size: 33px;
+          line-height: normal;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    width: 1020px;
+    height: 33px;
+    margin: 30px 110px 20px;
+    color: #fff;
+
+    a {
+      width: 124px;
+      height: 33px;
+      margin-right: 10px;
+      display: block;
+      float: left;
+    }
+    
+    span {
+      width: 750px;
+      display: block;
+      margin-top: 8px;
+      font-size: 10px;
+      text-align: center;
+      float: left;
+    }
+  }
+}

@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
+
+  def update
+  end
+  
+
   def show
   end
 
-  # sign_outアクション仮置き
   def sign_out  
   end
 

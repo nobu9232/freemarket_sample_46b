@@ -1,0 +1,30 @@
+.login-contents
+  .header-content
+    = link_to(image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3547997460", class: "header-content__logo")
+  .main-container
+    .registration-inner
+      アカウントをお持ちでない方はこちら
+      = link_to do 
+        .registration-inner__button
+          = link_to "新規会員登録"
+    .login-inner
+      = link_to do 
+        .login-inner__facebook-button
+          %i.fa.fa-facebook-square
+          = link_to "Facebookでログイン"
+      = link_to do
+        .login-inner__google-button
+          %i.fa.fa-google
+          = link_to "Googleでログイン"
+    
+      .login-form
+        %input{class: "login-form__email", :placeholder => "メールアドレス", :type => "text"}
+        %input{class: "login-form__password", :placeholder => "パスワード", :type => "text"}
+      
+      %img.login-inner__certification-image{src:"https://i.kinja-img.com/gawker-media/image/upload/s--jWVcbQhq--/pfwzk0orb7yuclnjfkn9.gif"}
+      %button.login-inner__login-button{type:"submit"} ログイン
+      %p.login-inner__text-right
+        = link_to 'パスワードをお忘れの方'
+
+
+= render "users/shared/user-footer"

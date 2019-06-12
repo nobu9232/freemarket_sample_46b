@@ -1,0 +1,20 @@
+.signup-contents
+  .header-content
+    = link_to(image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3547997460", class: "header-content__logo")
+  .main-container
+    %h2
+      新規会員登録
+    .form-inner
+      = link_to do 
+        .form-inner__email-icon
+          %i.fa.fa-envelope
+          = link_to "メールアドレスで登録"
+      = link_to do
+        .form-inner__facebook-icon
+          %i.fa.fa-facebook-square
+          = link_to "Facebookで登録"
+      = link_to do
+        .form-inner__google-icon
+          %i.fa.fa-google
+          = link_to "Googleで登録"
+= render "users/shared/user-footer"

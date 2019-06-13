@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'tops#index'
   get 'users/update'
   get 'users/sign_out'
+  get 'products/confirmation'
 
   resources :users, only: :show
 end

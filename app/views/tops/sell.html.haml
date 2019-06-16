@@ -4,16 +4,20 @@
     %form{action: "#", method: "post"}
       .picture.form-part
         %label.form-part__label 出品画像
+        %span必須
         %p.form-part__explane 最大10枚までアップロードできます
         %input(type="file" name="image")/
       .overview.form-part
         %label.form-part__label 商品名
+        %span必須
         %input(type="text" name="product_name" placeholder="商品名（必須40文字まで）")/
         %label.form-part__label 商品の説明
+        %span必須
         %textarea(name="商品説明文" cols="30" rows="10" placeholder="商品の説明（必須1,000文字以内）（色、素材、重さ、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。")
       .detail.form-part
         %h2.form-part__title 商品の詳細
         %label.form-part__label カテゴリー
+        %span必須
         %select
           %option(value="")---
           %option(value="1")レディース
@@ -30,6 +34,7 @@
           %option(value="12")自動車・オートバイ
           %option(value="13")その他
         %label.form-part__label 商品の状態
+        %span必須
         %select
           %option(value="")---
           %option(value="1")新品。未使用
@@ -41,11 +46,13 @@
       .delivery.form-part
         %h2.form-part__title 配送について
         %label.form-part__label 配送料の負担
+        %span必須
         %select
           %option(value="")---
           %option(value="1")送料込み（出品者負担）
           %option(value="2")着払い（購入者負担）
         %label.form-part__label 配送元の地域
+        %span必須
         %select
           %option(value="")---
           %option(value="1")北海道
@@ -97,6 +104,7 @@
           %option(value="47")沖縄県
           %option(value="99")未定
         %label.form-part__label 発送までの日数
+        %span必須
         %select
           %option(value="")---
           %option(value="1")1~2日で発送
@@ -107,6 +115,7 @@
         .form-part__body
           .price-set
             %label.form-part__label 価格
+            %span必須
             ¥
             %input(type="text" placeholder="例）300")/
           %hr/

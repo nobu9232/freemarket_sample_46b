@@ -46,6 +46,7 @@
 
 
 ## credit_card_information_listsテーブル
+|Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |card_number|integer|null: false, unique:true|

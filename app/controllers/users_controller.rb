@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     render :login, layout:
     "user_application"
   end
+  
   def show
   end
   

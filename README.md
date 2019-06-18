@@ -1,4 +1,3 @@
-# README
 
 ## usersテーブル
 
@@ -47,6 +46,7 @@
 
 
 ## credit_card_information_listsテーブル
+|Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |card_number|integer|null: false, unique:true|
@@ -59,6 +59,7 @@
 
 
 ## ratesテーブル
+|Column|Type|Options|
 |------|----|-------|
 |rate_scale|integer|null: false|
 |content|text|null: false|
@@ -71,6 +72,7 @@
   
  
 ## followersテーブル
+|Column|Type|Options|
 |------|----|-------|
 
 ### Association
@@ -78,6 +80,7 @@
 - has_many :followers_users
 
 ## followers_usersテーブル
+|Column|Type|Options|
 |------|----|-------|
 |follower_id|references|null: false, foreign_key:true|
 |user_id|references|null: false, foreign_key:true|
@@ -88,6 +91,7 @@
 
 
 ## deal_groupsテーブル
+|Column|Type|Options|
 |------|----|-------|
 |seller_user_id|references|null: false, foreign_key:true|
 |buyer_user_id|references|null: false, foreign_key:true|
@@ -101,6 +105,7 @@
 
 
 ## deal_messagesテーブル
+|Column|Type|Options|
 |------|----|-------|
 |deal_group_id|references|null: false, foreign_key:true|
 |content|text|null: false|
@@ -110,6 +115,7 @@
 
 
 ## block_listsテーブル
+|Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key:true|
 |blocked_user_id|references|null: false, foreign_key:true|
@@ -117,7 +123,6 @@
 ### Association
 - belongs_to :user
 - belongs_to :blocked_user, class_name: "User"
-
 
 ## productsテーブル
 
@@ -147,6 +152,7 @@
 
 
 ## product_statusテーブル
+|Column|Type|Options|
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |status|string|null: false|→下書き、出品中、落札（振込待ち）、振込済み（売上確定）、発送済み、売上振込済み
@@ -155,6 +161,7 @@
 -  belongs_to :product
 
 ## product_imagesテーブル
+|Column|Type|Options|
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |images|string|null: false|
@@ -164,6 +171,7 @@
 
 
 ## categoriesテーブル
+|Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique:true|
 |parent_id|integer||
@@ -172,6 +180,7 @@
 -  has_many :products
 
 ## brandsテーブル
+|Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique:true|
 |parent_id|integer||
@@ -181,6 +190,7 @@
 
 
 ## likesテーブル
+|Column|Type|Options|
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |user_id|references|null: false, foreign_key:true|
@@ -191,6 +201,7 @@
 
 
 ## product_commentsテーブル
+|Column|Type|Options|
 |------|----|-------|
 |product_id|references|null: false, foreign_key:true|
 |user_id|references|null: false, foreign_key:true|
@@ -202,6 +213,7 @@
 
 
 ## noticesテーブル
+|Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key:true|
 |content|text|null: false|
@@ -211,6 +223,7 @@
 
 
 ## newsテーブル
+|Column|Type|Options|
 |------|----|-------|
 |content|text|null: false|
 

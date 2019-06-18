@@ -7,3 +7,4 @@ Rails.application.routes.draw do
   get 'users/sign_out'
   resources :users, only: :show
 end
+

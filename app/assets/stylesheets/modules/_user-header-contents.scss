@@ -1,0 +1,9 @@
+.user-header-content{
+  height: 128px;
+  text-align: center;
+  &__logo{
+    display: inline-block;
+    height: 49px;
+    padding: 40px;
+  }
+}

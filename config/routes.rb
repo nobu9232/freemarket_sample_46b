@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get 'users/update'
   get 'users/sign_out'
   get 'users/login'
-　resources :users
+  resources :users
 end
 

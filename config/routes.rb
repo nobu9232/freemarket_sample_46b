@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'users/update'
   get 'users/sign_out'
   get 'products/confirmation'
-
-  resources :users, only: :show
+  resources :users
 end
 

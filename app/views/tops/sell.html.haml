@@ -113,7 +113,8 @@
       .delivery.form-part
         .delivery__left
           %h2.form-part__title 配送について
-          = fa_icon "question-circle"
+          = link_to "#" do
+            = fa_icon "question-circle"
         .delivery__right
           .form-part__select
             %label.form-part__label 配送料の負担
@@ -208,7 +209,8 @@
       .price.form-part
         .price__left
           %h2.form-part__title 販売価格(300〜9,999,999)
-          = fa_icon "question-circle"
+          = link_to "#" do
+            = fa_icon "question-circle"
         .form-part__body.price__right
           .price-set
             .price-set__left

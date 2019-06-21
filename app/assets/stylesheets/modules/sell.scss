@@ -249,16 +249,17 @@
     }
 
   }
+  span {
+    background: #ea352d;
+    color: #fff;
+    font-weight: bold;
+    padding: 2px 4px;
+    font-size: 12px;
+    border-radius: 2px;
+  }
+  
 }
 
-span {
-  background: #ea352d;
-  color: #fff;
-  font-weight: bold;
-  padding: 2px 4px;
-  font-size: 12px;
-  border-radius: 2px;
-}
 
 .brand {
   span {

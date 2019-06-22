@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :tops, except: :index, action: :sell
   get 'users/update'
   get 'users/sign_out'
+  resources :products, action: :confirmation
   get 'users/card'
   resources :users, only: :show
   get 'users/identification'

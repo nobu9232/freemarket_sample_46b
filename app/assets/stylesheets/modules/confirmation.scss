@@ -1,0 +1,142 @@
+.confirmation-contents{
+  .main-container{
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding-bottom: 40px;
+  }
+
+  .tops-content{
+    font-size: 20px;
+    text-align: center;
+    padding: 40px 64px; 
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+  }
+
+  .buy-content{
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 24px 12.5% 0;
+    text-align: center;
+
+    &__image{
+      width: auto;
+      max-height: 148px;
+    }
+
+    &__product-name{
+      margin: 8px 0 0;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: bold;
+    }
+
+    .buy-form{
+      &__price{
+        margin-top: 8px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      
+      &__price-shipping-fee{
+          margin-left: 8px;
+          font-size: 14px;
+          font-weight: 300;
+        }
+      
+      &__buy-accordion{
+        margin-top: 16px;
+        padding: 16px;
+        text-align: center;
+        min-height: 100%;
+        background: #ccc;
+        font-size: 14px;
+        color: #333;
+      }
+
+      &__payment{
+        padding: 16px 0;
+        display: flex;
+        justify-content: space-between;
+
+        &--left{
+          font-size: 20px;
+          font-weight: bold;
+          color: #333;
+        }
+
+        &--ri__ght{
+          font-size: 18px;
+          font-weight: bold;
+          color: #333;
+        }
+      }
+      &__error-text{
+        margin: 8px 0 0;
+        font-size: 14px;
+        color: #ea352d;
+      }
+      &__buy-button{
+        margin-top: 16px;
+        text-align: center;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        font-weight: bold;
+        background: #888888;
+        color: #fff;
+        cursor: not-allowed;
+      }
+
+      a{
+        text-decoration: none;
+        color: #0099e8;
+        cursor: pointer;  
+        font-size: 14px;          
+      }
+  
+      a:hover{
+        opacity: 0.7;
+        text-decoration: underline;
+      }
+
+      .user-info{
+        box-sizing: content-box;
+        margin-top: 40px;
+        padding: 24px 0;
+        border-top: 1px solid #f5f5f5;
+        text-align: left;
+        color: #333;
+
+        &__text{
+          margin: 8px 0;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+
+        &__text--right{
+          display: inline;
+          float: right; 
+        }
+      }
+      h3{
+        font-size: 14px;
+        font-weight: bold;
+
+      }
+
+      .payment-method{
+        &__text{
+          @extend .user-info__text
+        }
+        &__text--right{
+          @extend .user-info__text--right
+        }
+        @extend .user-info
+     
+      }
+    }
+
+  }
+}

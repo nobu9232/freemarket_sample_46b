@@ -5,11 +5,7 @@ Rails.application.routes.draw do
   resources :tops, except: :index, action: :sell
   get 'users/update'
   get 'users/sign_out'
-<<<<<<< HEAD
   get 'products/confirmation'
-  resources :users
-=======
   resources :users, only: :show
->>>>>>> master
 end
 

@@ -1,5 +1,8 @@
 a {
   display: block;
+  text-decoration: none;
+  font-size: 14px;
+  color: #333;
 
   &:hover {
     opacity: .7;
@@ -167,6 +170,11 @@ a {
         margin: 16px;
         height: 56px;
         width: 100%;
+
+        &:hover {
+          background: #fafafa;
+          opacity: 1;
+        }
       }
     }
   }

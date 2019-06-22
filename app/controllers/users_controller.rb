@@ -7,12 +7,17 @@ class UsersController < ApplicationController
   def update
   end
   
-
   def card
+
+  def show
+
   end
 
   def sign_out  
 
+  end
+
+  def identification
   end
 
 end

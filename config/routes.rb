@@ -10,3 +10,7 @@ Rails.application.routes.draw do
   
 end
 
+  get 'users/identification'
+  resources :products, action: :confirmation
+  resources :users, only: :show
+end

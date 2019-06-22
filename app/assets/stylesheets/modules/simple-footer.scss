@@ -1,0 +1,35 @@
+.simple-footer {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: #333;
+
+  .policies {
+    width: 456px;
+    display: flex;
+    justify-content: space-around;
+
+    .policy {
+      a {
+        text-decoration: none;
+        &:link { color: #333; }
+        &:visited { color: #333; }
+        &:hover { color: #333; }
+        &:active { color: #333; }
+      }
+    }
+  }
+
+  .logo {
+    margin-top: 40px;
+    &__image {
+      width: 80px;
+    }
+  }
+
+  .copy-right {
+    margin-top: 8px;
+  }
+}

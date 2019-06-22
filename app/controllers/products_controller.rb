@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
 
  def confirmation  
-  render :confirmation, layout:
-  "user_application"
+  render :confirmation, layout: "simple_layout"
  end
 
 

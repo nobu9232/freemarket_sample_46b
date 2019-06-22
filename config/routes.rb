@@ -9,6 +9,4 @@ Rails.application.routes.draw do
   get 'users/card'
   resources :users, only: :show
   get 'users/identification'
-  resources :products, action: :confirmation
-  resources :users, only: :show
 end

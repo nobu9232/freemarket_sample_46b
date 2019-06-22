@@ -8,13 +8,12 @@ class UsersController < ApplicationController
   end
   
   def card
+  end
 
   def show
-
   end
 
   def sign_out  
-
   end
 
   def identification

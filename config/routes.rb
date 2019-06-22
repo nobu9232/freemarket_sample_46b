@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'users/update'
   get 'users/sign_out'
   resources :products, action: :confirmation
+  get 'users/card'
+  resources :users, only: :show
+  get 'users/identification'
+  resources :products, action: :confirmation
   resources :users, only: :show
 end
-

@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   get 'users/sign_out'
   get 'users/card'
   resources :users, only: :show
-  
-end
-
   get 'users/identification'
   resources :products, action: :confirmation
   resources :users, only: :show

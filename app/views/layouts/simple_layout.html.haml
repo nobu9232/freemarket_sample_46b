@@ -10,8 +10,6 @@
     %link{href: "https://fonts.googleapis.com/icon?family=Material+Icons", rel: "stylesheet"}/
   %body
     .wrapper
-      = render 'layouts/header'
+      = render 'layouts/simple-header'
       = yield
-      = render 'layouts/app-bar'
-      = render 'layouts/footer'
-      = render 'layouts/footer-btn'
+      = render 'layouts/simple-footer'

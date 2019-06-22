@@ -1,0 +1,18 @@
+.container
+  = render 'side_bar'
+  .card-information
+    %h1
+      支払い方法
+    .content
+      .content__head
+        %h2 クレジットカード一覧
+      .content__body
+        = link_to do
+          %i.fa.fa-credit-card
+          %span
+            クレジットカードを追加する
+      .content__foot
+        = link_to do
+          %span
+            支払い方法について
+          %i.fa.fa-chevron-right

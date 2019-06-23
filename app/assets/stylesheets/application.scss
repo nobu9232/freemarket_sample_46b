@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
-
-@import "./reset";
-@import "./font-awesome";
+ 
+ @import "./font-awesome";
+ @import "./reset";
+ @import "./signup";
+ @import "./user-footer";
+ @import "./signup-header";
+ @import "./registration";

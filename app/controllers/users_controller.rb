@@ -4,14 +4,6 @@ class UsersController < ApplicationController
     render :registration, layout:
     "user_application"
   end
-<<<<<<< HEAD
-
-  def login
-    render :login, layout:
-    "simple_layout"
-  end
-=======
->>>>>>> origin/master
 
   def signup
     render :signup, layout:

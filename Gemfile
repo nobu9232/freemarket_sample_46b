@@ -79,10 +79,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
 gem 'erb2haml'
-<<<<<<< HEAD
 gem 'font-awesome-sass', '~> 5.4.1'
-=======
-gem 'font-awesome-rails'
 gem 'active_hash'
 gem 'gretel'
->>>>>>> master

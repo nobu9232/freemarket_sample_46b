@@ -314,12 +314,8 @@ DEPENDENCIES
   devise
   erb2haml
   fog-aws
-<<<<<<< HEAD
   font-awesome-sass (~> 5.4.1)
-=======
-  font-awesome-rails
   gretel
->>>>>>> master
   haml-rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)

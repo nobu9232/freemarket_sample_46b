@@ -7,9 +7,14 @@ class UsersController < ApplicationController
 
   def signup
     render :signup, layout:
-    "user_application"
+    "simple_layout"
   end
-  
+
+  def login
+    render :login, layout:
+    "simple_layout"
+  end
+
   def show
     # render layout: false
   end

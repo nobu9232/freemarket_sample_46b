@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   def card
   end
+  
 
   def sign_out  
   end

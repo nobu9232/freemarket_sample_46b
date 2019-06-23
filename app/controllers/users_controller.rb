@@ -4,9 +4,15 @@ class UsersController < ApplicationController
     render :registration, layout:
     "user_application"
   end
+<<<<<<< HEAD
+  
+  def login
+    render :login, layout:
+=======
 
   def signup
     render :signup, layout:
+>>>>>>> master
     "user_application"
   end
   
@@ -19,6 +25,7 @@ class UsersController < ApplicationController
 
   def card
   end
+  
 
   def sign_out  
   end

@@ -1,11 +1,11 @@
 
-## usersテーブル
+## usersテーブル 必須
 
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, unique:true|
 |email|string|null:false, unique:true|
-|password| string|null:false| 
+|password|string|null:false| 
 |self_introduction|text||
 |point|integer||
 
@@ -13,8 +13,8 @@
 - has_many :products
 - has_many :product_comments
 - has_many :likes
-- has_many :deal_groups
-- has_many :deal_messages
+- has_many :orders
+- has_many :transaction_messages
 - has_many :notices, dependent: :destroy
 - has_many :block_lists, through: :block_lists_users
 - has_many :followers, through: :followers_users
@@ -24,20 +24,20 @@
 - has_one :personal_information_list, dependent: :destroy
 
 
-## personal_information_listsテーブル
+## user_detailsテーブル 必須
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
 |family_name(fullwidth)|string|null:false|
 |first_name(fullwidth)|string|null:false| 
 |family_name_kana (fullwidth)|string|null:false|
 |first_name_kana (fullwidth)|string|null:false|
-|date_of_birth|string|null: false|
-|mobile_phone_number|string|null:false|
+|date_of_birth|date|null: false|
+|phone_number|string|null:false|
 |postal_code|string|null:false| 
-|prefectures|string|null:false|
-|cities|string|null:false|
+|prefecture|string|null:false|
+|city|string|null:false|
 |address|string|null:false|
 |building_name|string||
 
@@ -124,7 +124,7 @@
 - belongs_to :user
 - belongs_to :blocked_user, class_name: "User"
 
-## productsテーブル
+## productsテーブル 必須
 
 |Column|Type|Options|
 |------|----|-------|
@@ -132,13 +132,13 @@
 |category_id|references|null: false, foreign_key:true| 
 |brand_id|references|null: false, foreign_key:true|
 |product_name|string|null:false|
+|product_size|string|null:false|
+|product_condition|string|null:false|
 |shipping_charge|integer|null:false| 
 |shipping_method|string|null:false|
 |ship_from_location|string|null:false|
-|date_before_ship|string|null:false| 
+|shipping_days|date|null:false| 
 |sales_price|integer|null:false|
-|shipping_fee|integer|null:false|
-|listing_date|date|null:false| 
 |purchase_date|date|null:false|
 
 ### Association

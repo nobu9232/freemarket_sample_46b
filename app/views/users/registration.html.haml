@@ -1,6 +1,5 @@
 .wrapper
   = render "users/shared/signup-header"
-
   .registration-contents
     .main-container
       %h2 会員情報入力
@@ -75,5 +74,4 @@
           %button{type: "submit"} 次へ進む
           %p.text-right
             = link_to'本人確認の登録について＞'
-
-  = render "users/shared/user-footer"
+  = render "layouts/simple-footer"

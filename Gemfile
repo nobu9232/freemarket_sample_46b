@@ -82,3 +82,4 @@ gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'active_hash'
 gem 'gretel'
+gem "jquery-rails"

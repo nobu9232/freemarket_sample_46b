@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     # render layout: false
   end
   
-  def update
+  def profile
   end
 
   def card

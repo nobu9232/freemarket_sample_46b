@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
 
+
+
+  #view
+
   def registration
-    render :registration, layout:
-    "user_application"
+    render :registration, layout: "user_application"
   end
 
   def signup
@@ -26,10 +29,10 @@ class UsersController < ApplicationController
   end
   
 
-  def sign_out  
+  def signout  
   end
 
   def identification
   end
-
+  
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
-  
+
+  devise_for :users, controllers: {registrations: 'users/registrations'}
   root 'products#index'
   resources :products do
     collection do
@@ -19,6 +19,5 @@ Rails.application.routes.draw do
       get 'identification'
     end
   end
-  
 end
 

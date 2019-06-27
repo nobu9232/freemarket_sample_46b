@@ -1,0 +1,81 @@
+.wrapper
+  = render "users/shared/signup-header"
+  .registration-contents
+    .main-container
+      %h2 会員情報入力
+      .form-inner
+        = form_with scope: :session, url:  users_login_path do |f|
+          .form-group
+            = f.label "ニックネーム"
+            %span 必須
+            = f.text_field :nickname, autofocus: true, calss: "input-default", placeholder: "例）メルカリ太郎"
+          .form-group
+            = f.label "メールアドレス"
+            %span 必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", calss: "input-default", placeholder: "例）PC・携帯どちらでも可"
+          .form-group
+            = f.label "パスワード"
+            %span 必須
+            = f.password_field :password, autocomplete: "new-password", calss: "input-default", placeholder: "例）6文字以上"
+          .form-group
+            = f.label "パスワード(確認)"
+            %span 必須
+            %input{calss: "input-default", placeholder: "例）6文字以上", type: "text"}
+          .form-group
+            %h3
+              本人確認
+            .form-group__text
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .form-group
+            = f.label "姓(全角)"
+            %span 必須
+            %input{calss: "input-default", placeholder: "例）山田", type: "text"}
+          .form-group
+            = f.label "名(全角)"
+            %span 必須
+            %input{calss: "input-default", placeholder: "例）彩", type: "text"}
+          .form-group
+            = f.label "姓カナ(全角)"
+            %span 必須
+            %input{calss: "input-default", placeholder: "例）ヤマダ", type: "text"}
+          .form-group
+            = f.label "名カナ(全角)"
+            %span 必須
+            %input{calss: "input-default", placeholder: "例）アヤ", type: "text"}
+          .form-group
+            = f.label "生年月日"
+            %span 必須
+            .form-group__select-wrap
+              .form-group__select-wrap--year
+                = select_tag('year',options_for_select(1900..2019), include_blank: '--', class:'select-default')
+                %i.fa.fa-chevron-down
+                %span
+                  年
+              .form-group__select-wrap--month
+                = select_tag('month',options_for_select(1..12), include_blank: '--', class:'select-default')
+                %i.fa.fa-chevron-down
+                %span
+                  月
+              .form-group__select-wrap--date
+                = select_tag('date',options_for_select(1..31), include_blank: '--', class:'select-default')
+                %i.fa.fa-chevron-down
+                %span
+                  日
+            .form-group__form-info
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .next-content
+            %input{name: "after_save_callback", type: "hidden", value: ""}/
+            .form-group
+              = image_tag "https://i.kinja-img.com/gawker-media/image/upload/s--jWVcbQhq--/pfwzk0orb7yuclnjfkn9.gif", class: "form-group__certification"
+            .form-group
+              %p.text-center
+                「次へ進む」のボタンを押すことにより、
+                = link_to "利用規約"
+                に同意したものとみなします
+            = f.submit "次へ進む", class: "button"
+            .button
+              次へ
+            %p.text-right
+              = link_to'本人確認の登録について＞'
+              
+  = render "layouts/simple-footer"

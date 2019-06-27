@@ -1,22 +1,40 @@
--#サーバーサイドを実装するため参考にしたいので、コメントアウトしています
--# %h2 Sign up
--# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
--#   = render "devise/shared/error_messages", resource: resource
--#   .field
--#     = f.label :email
--#     %br/
--#     = f.email_field :email, autofocus: true, autocomplete: "email"
--#   .field
--#     = f.label :password
--#     - if @minimum_password_length
--#       %em
--#         (#{@minimum_password_length} characters minimum)
--#     %br/
--#     = f.password_field :password, autocomplete: "new-password"
--#   .field
--#     = f.label :password_confirmation
--#     %br/
--#     = f.password_field :password_confirmation, autocomplete: "new-password"
--#   .actions
--#     = f.submit "Sign up"
--# = render "devise/shared/links"
+-# user_model作成のための仮置き
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+
+  .signup-container--first
+    .field
+      = f.label :nickname
+      %br/
+      = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
+    .field
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email"
+    .field
+      = f.label :password
+      - if @minimum_password_length
+        %em
+          (#{@minimum_password_length} characters minimum)
+      %br/
+      = f.password_field :password, autocomplete: "new-password"
+    .field
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+    %a.button
+      次へ
+  .signup-container--second 
+    = f.fields_for :user_detail do |b|
+      .field
+        = b.label :family_name
+        %br/
+        = b.text_field :family_name
+      .field
+        = b.label :first_name
+        %br/
+        = b.text_field :first_name
+    .actions
+      = f.submit "Sign up"
+= render "devise/shared/links"

@@ -1,19 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-<<<<<<< HEAD
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'tops#index'
-  get 'tops/show'
-  resources :tops, except: :index, action: :sell
-  get 'users/update'
-  get 'users/sign_out'
-  resources :products, action: :confirmation
-  get 'users/card'
-  resources :users, only: :show
-  get 'users/identification'
-end
-=======
-  
+
   root 'products#index'
   resources :products do
     collection do
@@ -34,5 +22,3 @@ end
   end
   
 end
-
->>>>>>> master

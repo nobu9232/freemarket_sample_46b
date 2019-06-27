@@ -128,25 +128,26 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|seller_user_id|references|null: false, foreign_key:true| 
+|seller_user_id|references|null: false, foreign_key:true|
+|product_name|string|null:false, index: true|
+|product_text|text|null:false|
+|product_condition|string|null:false|
+|sales_price|integer|null:false|
+|product_size|string||
 |category_id|references|null: false, foreign_key:true| 
 |brand_id|references|null: false, foreign_key:true|
-|product_name|string|null:false|
 |shipping_charge|integer|null:false| 
 |shipping_method|string|null:false|
 |ship_from_location|string|null:false|
-|date_before_ship|string|null:false| 
-|sales_price|integer|null:false|
-|shipping_fee|integer|null:false|
-|listing_date|date|null:false| 
-|purchase_date|date|null:false|
+|shipping_days|string|null:false| 
+|purchase_date|date||
 
 ### Association
-- belongs_to :category
+- has_many :categories, through: :products_categories, dependent: :destroy
+- has_many :products_categories
 - belongs_to :brand
-- has_many :product_comments, dependent: :destroy
-- has_many :likes, dependent: :destroy
-- has_one :deal_group, dependent: :destroy
+<!-- - has_many :likes, dependent: :destroy 今回不要-->
+- has_one :order, dependent: :destroy
 - has_many :product_images, dependent: :destroy
 - has_one :product_status, dependent: :destroy
 
@@ -177,7 +178,21 @@
 |parent_id|integer||
 
 ### Association
--  has_many :products
+- has_many :products, through: :products_categories, dependent: :destroy
+- has_many :products_categories
+
+
+
+## products_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|references|null: false, foreign_key:true|
+|category_id|references|null: false, foreign_key:true|
+
+### Association
+-  belongs_to :product
+-  belongs_to :category
+
 
 ## brandsテーブル
 |Column|Type|Options|

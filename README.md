@@ -134,8 +134,7 @@
 |product_condition|string|null:false|
 |sales_price|integer|null:false|
 |product_size|string||
-|category_id|references|null: false, foreign_key:true| 
-|brand_id|references|null: false, foreign_key:true|
+|brand_id|references|foreign_key:true|
 |shipping_charge|integer|null:false| 
 |shipping_method|string|null:false|
 |ship_from_location|string|null:false|
@@ -143,6 +142,7 @@
 |purchase_date|date||
 
 ### Association
+- belongs_to :user
 - has_many :categories, through: :products_categories, dependent: :destroy
 - has_many :products_categories
 - belongs_to :brand

@@ -128,37 +128,33 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|seller_user_id|references|null: false, foreign_key:true| 
-|category_id|references|null: false, foreign_key:true| 
-|brand_id|references|null: false, foreign_key:true|
-|product_name|string|null:false|
-|product_size|string|null:false|
-|product_condition|string|null:false|
+|seller_user_id|integer|null: false, foreign_key:true|
+|buyer_user_id|integer|foreign_key:true|
+|name|string|null:false, index: true|
+|text|text|null:false|
+|condition|string|null:false|
+|sales_price|integer|null:false|
+|size|string||
+|brand_id|references|foreign_key:true|
 |shipping_charge|integer|null:false| 
 |shipping_method|string|null:false|
 |ship_from_location|string|null:false|
-|shipping_days|date|null:false| 
-|sales_price|integer|null:false|
-|purchase_date|date|null:false|
+|shipping_days|string|null:false| 
+|purchase_date|date||
+|status|string|null: false|
+  <!-- enum status: { "draft":0, "exhibition":1, "bid":2, "transferred":3, "sent":4}とする -->
+
+
 
 ### Association
-- belongs_to :category
+- belongs_to :user
+- has_many :categories, through: :products_categories, dependent: :destroy
+- has_many :products_categories
 - belongs_to :brand
-- has_many :product_comments, dependent: :destroy
-- has_many :likes, dependent: :destroy
-- has_one :deal_group, dependent: :destroy
+<!-- - has_many :likes, dependent: :destroy 今回不要-->
+- has_one :order, dependent: :destroy
 - has_many :product_images, dependent: :destroy
 - has_one :product_status, dependent: :destroy
-
-
-## product_statusテーブル
-|Column|Type|Options|
-|------|----|-------|
-|product_id|references|null: false, foreign_key:true|
-|status|string|null: false|→下書き、出品中、落札（振込待ち）、振込済み（売上確定）、発送済み、売上振込済み
-
-### Association
--  belongs_to :product
 
 ## product_imagesテーブル
 |Column|Type|Options|
@@ -177,7 +173,21 @@
 |parent_id|integer||
 
 ### Association
--  has_many :products
+- has_many :products, through: :products_categories, dependent: :destroy
+- has_many :products_categories
+
+
+
+## products_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|references|null: false, foreign_key:true|
+|category_id|references|null: false, foreign_key:true|
+
+### Association
+-  belongs_to :product
+-  belongs_to :category
+
 
 ## brandsテーブル
 |Column|Type|Options|

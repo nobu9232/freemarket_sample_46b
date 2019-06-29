@@ -130,11 +130,11 @@
 |------|----|-------|
 |seller_user_id|integer|null: false, foreign_key:true|
 |buyer_user_id|integer|foreign_key:true|
-|product_name|string|null:false, index: true|
-|product_text|text|null:false|
-|product_condition|string|null:false|
+|name|string|null:false, index: true|
+|text|text|null:false|
+|condition|string|null:false|
 |sales_price|integer|null:false|
-|product_size|string||
+|size|string||
 |brand_id|references|foreign_key:true|
 |shipping_charge|integer|null:false| 
 |shipping_method|string|null:false|

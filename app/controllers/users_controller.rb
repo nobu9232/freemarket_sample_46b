@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
   
 
-  def signout  
+  def sign_out  
   end
 
   def identification

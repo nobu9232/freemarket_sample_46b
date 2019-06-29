@@ -128,7 +128,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|seller_user_id|references|null: false, foreign_key:true|
+|seller_user_id|integer|null: false, foreign_key:true|
+|buyer_user_id|integer|foreign_key:true|
 |product_name|string|null:false, index: true|
 |product_text|text|null:false|
 |product_condition|string|null:false|
@@ -140,6 +141,8 @@
 |ship_from_location|string|null:false|
 |shipping_days|string|null:false| 
 |purchase_date|date||
+|status|string|null: false|→下書き、出品中、落札（振込待ち）、振込済み（売上確定）、発送済み、売上振込済み
+
 
 ### Association
 - belongs_to :user
@@ -150,16 +153,6 @@
 - has_one :order, dependent: :destroy
 - has_many :product_images, dependent: :destroy
 - has_one :product_status, dependent: :destroy
-
-
-## product_statusテーブル
-|Column|Type|Options|
-|------|----|-------|
-|product_id|references|null: false, foreign_key:true|
-|status|string|null: false|→下書き、出品中、落札（振込待ち）、振込済み（売上確定）、発送済み、売上振込済み
-
-### Association
--  belongs_to :product
 
 ## product_imagesテーブル
 |Column|Type|Options|

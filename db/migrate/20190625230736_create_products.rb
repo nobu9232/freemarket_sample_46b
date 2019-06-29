@@ -14,7 +14,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :ship_form_location, null: false
       t.string :shipping_days, null: false
       t.date :purchase_date
-      t.string :status, null: false
+      t.integer :status, null: false
       t.timestamps
     end
   end

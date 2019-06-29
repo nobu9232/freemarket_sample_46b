@@ -1,7 +1,8 @@
 .container.product-form
   %h1.form-header 商品の情報を入力
   .form-body
-    %form{action: "#", method: "post"}
+    = form_with model: @product do |f|
+      
       .picture.form-part
         %label.form-part__label.big 出品画像
         %span必須

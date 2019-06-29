@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     collection do
       get 'registration'
       get 'signup'
+      get 'login'
       get 'profile'
       get 'card'
       get 'sign_out'

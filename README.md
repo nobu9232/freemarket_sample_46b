@@ -142,7 +142,8 @@
 |shipping_days|string|null:false| 
 |purchase_date|date||
 |status|string|null: false|
-<!--   enum status: { "下書き":0, "出品中":1, "落札":2, "振込み済":3, "発送済":4}とする-->
+  <!-- enum status: { "draft":0, "exhibition":1, "bid":2, "transferred":3, "sent":4}とする -->
+
 
 
 ### Association

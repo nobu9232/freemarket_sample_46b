@@ -141,7 +141,8 @@
 |ship_from_location|string|null:false|
 |shipping_days|string|null:false| 
 |purchase_date|date||
-|status|string|null: false|→下書き、出品中、落札（振込待ち）、振込済み（売上確定）、発送済み、売上振込済み
+|status|string|null: false|
+<!--   enum status: { "下書き":0, "出品中":1, "落札":2, "振込み済":3, "発送済":4}とする-->
 
 
 ### Association

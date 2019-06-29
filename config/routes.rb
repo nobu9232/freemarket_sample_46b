@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-
-  devise_for :users, controllers: {registrations: 'users/registrations'}
+  devise_for :users
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
   root 'products#index'
   resources :products do
     collection do
@@ -13,11 +14,12 @@ Rails.application.routes.draw do
     collection do
       get 'registration'
       get 'signup'
+      get 'login'
       get 'profile'
       get 'card'
       get 'sign_out'
       get 'identification'
     end
   end
+  
 end
-

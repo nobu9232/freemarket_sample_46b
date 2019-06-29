@@ -41,3 +41,8 @@ crumb :sold do
   link "出品した商品-売却済み"#, sold_users_path
   parent :mypage
 end
+
+crumb :item do
+  link "商品名"
+  parent :root
+end

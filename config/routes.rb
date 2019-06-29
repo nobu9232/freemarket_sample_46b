@@ -10,13 +10,15 @@ Rails.application.routes.draw do
   end
 
   resources :users do
+    member do
+      get 'profile'
+      get 'identification'
+    end
     collection do
       get 'registration'
       get 'signup'
-      get 'profile'
       get 'card'
       get 'sign_out'
-      get 'identification'
     end
   end
 end

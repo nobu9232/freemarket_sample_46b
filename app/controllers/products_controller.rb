@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   def sell
     render :sell, layout: "simple_layout"
-    # sell.html.haml呼び出しの時はlayout/simple_layout.html.hamlを使う
+    @product = Product.new
   end
 
   def confirmation  

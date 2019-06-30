@@ -2,24 +2,23 @@
   %h1.form-header 商品の情報を入力
   .form-body
     = form_with model: @product do |f|
-      
       .picture.form-part
         %label.form-part__label.big 出品画像
         %span必須
         %p.form-part__explane 最大10枚までアップロードできます
         .picture__drop-box
-          %input(type="file" name="image")/
+          = f.file_field :image
           %preドラッグアンドドロップ
           %preまたはクリックしてファイルをアップロード
       .overview.form-part
         .overview__name
           %label.form-part__label 商品名
           %span 必須
-          %input(type="text" name="product_name" placeholder="商品名（必須40文字まで）")/
+          = f.text_field :name, placeholder: "商品名（必須40文字まで）"
         .overview__explane
           %label.form-part__label 商品の説明
           %span必須
-          %textarea(name="商品説明文" rows="5" placeholder="商品の説明（必須1,000文字以内）（色、素材、重さ、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。")
+          = f.text_area :text, rows: "5", placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
       .detail.form-part
         %h2.form-part__title 商品の詳細
         .detail__right
@@ -27,21 +26,8 @@
             %label.form-part__label カテゴリー
             %span必須
             .form-part__select-box
-              %select
-                %option(value="")---
-                %option(value="1")レディース
-                %option(value="2")メンズ
-                %option(value="3")ベビー・キッズ
-                %option(value="4")インテリア・住まい・小物
-                %option(value="5")本・音楽・ゲーム
-                %option(value="6")おもちゃ・ホビー・グッズ
-                %option(value="7")コスメ・香水・美容
-                %option(value="8")家電・スマホ・カメラ
-                %option(value="9")スポーツ・レジャー
-                %option(value="10")ハンドメイド
-                %option(value="11")チケット
-                %option(value="12")自動車・オートバイ
-                %option(value="13")その他
+              -# = f.collection_select :category, collection, value_method, text_method, {}
+                
               %i.fas.fa-chevron-down
             .form-part__select-box
               %select

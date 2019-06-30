@@ -9,13 +9,11 @@ class UsersController < ApplicationController
   end
 
   def signup
-    render :signup, layout:
-    "simple_layout"
+    render :signup, layout: "simple_layout"
   end
 
   def login
-    render :login, layout:
-    "simple_layout"
+    render :login, layout: "simple_layout"
   end
 
   def show

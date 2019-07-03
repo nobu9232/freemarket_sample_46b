@@ -52,6 +52,25 @@
 
       .form-group{
         margin-top:40px;
+        position: relative;
+
+        .select{
+          background-color: white;
+          width: 500px;
+          margin-top: 8px;
+          height: 52px;
+          padding: 10px 16px 8px;
+          font-size: 14px
+        }
+        .date-select{
+          margin-top: 8px;
+          &__tab{
+            width:76px;
+            height: 48px;
+            padding: 0 10px; 
+            font-size: 14px;
+          }
+        }
 
         input{
           width: 100%;
@@ -76,6 +95,10 @@
           padding: 2px 4px;
         }
 
+        .gray{
+          background-color: #ccc;
+        }
+
         h3{
           font-weight: bold;
         }
@@ -88,29 +111,30 @@
         &__select-wrap{
           margin-top: 8px;
           display: flex;
+          position:relative;
 
           &--year{
-            position: relative;
+            position:relative;
           }
 
-
           &--month{
-            position: relative;
+            position:relative;
           }
 
           &--date{
-            position: relative;
+            position:relative;
           }
 
           .select-default{
-            background-color: white;
+            display: block;
+            background-color:white;
             width:76px;
             height: 50px;
             padding: 0 10px; 
             font-size: 14px;
           }
 
-          .fa-chevron-down{
+          .chevron-date_select{
             position: absolute;
             left: 50px;
             top: 14px;
@@ -118,10 +142,20 @@
             color: #888;
             font-size: 16px;
             width:22px;
-            height: 20px;
-
-            
+            height: 20px;          
           }
+
+          .chevron-prefecture{
+            position: absolute;
+            left: 293px;
+            top: 27px;
+            background-color: white;
+            color: #888;
+            font-size: 18px;
+            width:22px;
+            height: 20px; 
+          }
+
 
           span{
             margin: auto 0;
@@ -167,9 +201,16 @@
         background-color: #ea352d;
         cursor: pointer;
 
-        &__next{
+        &__first{
           @extend .button
         }
+
+        &__second{
+          @extend .button
+
+        }
+
+        
       }
       .text-right{
       float: right; 

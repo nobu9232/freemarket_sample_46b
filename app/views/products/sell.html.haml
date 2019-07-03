@@ -80,18 +80,7 @@
             %label.form-part__label サイズ
             %span必須
             .form-part__select-box
-              %select
-                %option(value="")---
-                %option(value="1")XXS以下
-                %option(value="2")XS(SS)
-                %option(value="3")S
-                %option(value="4")M
-                %option(value="5")L
-                %option(value="6")XL(LL)
-                %option(value="7")2XL(3L)
-                %option(value="8")3XL(4L)
-                %option(value="9")4XL(5L)以上
-                %option(value="10")FREE SIZE
+              = f.collection_select :size, Size.all, :id, :name
               %i.fas.fa-chevron-down
           .form-part__select.brand
             %label.form-part__label ブランド

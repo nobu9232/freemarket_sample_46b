@@ -25,6 +25,9 @@ class Product < ApplicationRecord
   # 配送方法active_hash
   belongs_to_active_hash :shipping_method, class_name: "Shipping_method", foreign_key: "shipping_method"
 
+  # サイズactive_hash
+  belongs_to_active_hash :size, class_name: "Size", foreign_key: "size"
+
   # belongs_to :brand
   # has_many :product_images, dependent: :destroy
 

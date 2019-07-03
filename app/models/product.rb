@@ -9,6 +9,9 @@ class Product < ApplicationRecord
   # 発送日数enum
   enum shipping_days: { "---":0, "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3}
 
+  # 発送料負担enum
+  enum shipping_charge: { "---":0, "送料込み（出品者負担）":1, "着払い（購入者負担）":2}, _suffix: true
+
   # カテゴリーとのアソシエーション
   has_many :categories, through: :products_categories, dependent: :destroy
   has_many :products_categories

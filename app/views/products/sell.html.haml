@@ -129,17 +129,7 @@
             %label.form-part__label 配送の方法
             %span必須
             .form-part__select-box
-              %select
-                %option(value="")---
-                %option(value="1")未定
-                %option(value="2")らくらくメルカリ便
-                %option(value="3")ゆうメール
-                %option(value="4")レターパック
-                %option(value="5")普通郵便（定形、定形外）
-                %option(value="6")クロネコヤマト
-                %option(value="7")ゆうパック
-                %option(value="8")クリックポスト
-                %option(value="9")ゆうパケット
+              = f.collection_select :shipping_method, Shipping_method.all, :id, :name
               %i.fas.fa-chevron-down
           .form-part__select
             %label.form-part__label 配送元の地域
@@ -151,7 +141,7 @@
             %label.form-part__label 発送までの日数
             %span必須
             .form-part__select-box
-              = f.select :days, Product.days.keys.map {|k| [k, k]}
+              = f.select :shipping_days, Product.shipping_days.keys.map {|k| [k, k]}
               %i.fas.fa-chevron-down
       .price.form-part
         .price__left

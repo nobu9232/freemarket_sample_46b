@@ -6,8 +6,8 @@ class Product < ApplicationRecord
   # 商品の状態enum
   enum status: { "出品中":0, "取引中":1, "落札済":2, "発送中":3, "取引終了":4}
 
-  # 商品の状態enum
-  enum days: { "---":'', "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3}
+  # 発送日数enum
+  enum shipping_days: { "---":0, "1~2日で発送":1, "2~3日で発送":2, "4~7日で発送":3}
 
   # カテゴリーとのアソシエーション
   has_many :categories, through: :products_categories, dependent: :destroy
@@ -15,6 +15,9 @@ class Product < ApplicationRecord
 
   # 都道府県active_hash
   belongs_to_active_hash :prefecture, class_name: "Prefecture", foreign_key: "ship_form_location"
+
+  # 配送方法active_hash
+  belongs_to_active_hash :shipping_method, class_name: "Shipping_method", foreign_key: "shipping_method"
 
   # belongs_to :brand
   # has_many :product_images, dependent: :destroy

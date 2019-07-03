@@ -101,14 +101,7 @@
             %label.form-part__label 商品の状態
             %span必須
             .form-part__select-box
-              %select
-                %option(value="")---
-                %option(value="1")新品。未使用
-                %option(value="2")未使用に近い
-                %option(value="3")目立った傷や汚れなし
-                %option(value="4")やや傷や汚れあり
-                %option(value="5")傷や汚れあり
-                %option(value="6")全体的に状態が悪い
+              = f.select :condition, Product.conditions.keys.map {|k| [k, k]}
               %i.fas.fa-chevron-down
       .delivery.form-part
         .delivery__left

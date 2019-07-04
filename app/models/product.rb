@@ -29,7 +29,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :size, class_name: "Size", foreign_key: "size"
 
   # belongs_to :brand
-  # has_many :product_images, dependent: :destroy
+  has_many :product_images, dependent: :destroy
 
 
 end

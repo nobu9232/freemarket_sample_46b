@@ -7,7 +7,7 @@
         %span必須
         %p.form-part__explane 最大10枚までアップロードできます
         .picture__drop-box
-          = f.file_field :image
+          = f.file_field(:file)
           %preドラッグアンドドロップ
           %preまたはクリックしてファイルをアップロード
       .overview.form-part
@@ -26,21 +26,7 @@
             %label.form-part__label カテゴリー
             %span必須
             .form-part__select-box
-              %select
-                %option(value="")---
-                %option(value="1")レディース
-                %option(value="2")メンズ
-                %option(value="3")ベビー・キッズ
-                %option(value="4")インテリア・住まい・小物
-                %option(value="5")本・音楽・ゲーム
-                %option(value="6")おもちゃ・ホビー・グッズ
-                %option(value="7")コスメ・香水・美容
-                %option(value="8")家電・スマホ・カメラ
-                %option(value="9")スポーツ・レジャー
-                %option(value="10")ハンドメイド
-                %option(value="11")チケット
-                %option(value="12")自動車・オートバイ
-                %option(value="13")その他
+              = f.collection_select :id, Category.all, :id, :name
               %i.fas.fa-chevron-down
             .form-part__select-box
               %select

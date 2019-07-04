@@ -1,11 +1,4 @@
 
-
-.wrapper{
-  width: 100vw;
-  background-color: #f5f5f5;
-  overflow:scroll;
-}
-
 .registration-contents{
 
   .main-container{
@@ -54,23 +47,59 @@
         margin-top:40px;
         position: relative;
 
-        .select{
-          background-color: white;
-          width: 500px;
-          margin-top: 8px;
-          height: 52px;
-          padding: 10px 16px 8px;
-          font-size: 14px
-        }
+
+        
+
         .date-select{
+          position: relative;
           margin-top: 8px;
           &__tab{
             width:76px;
             height: 48px;
             padding: 0 10px; 
             font-size: 14px;
+            background: #fff;
           }
+          &__year{
+            position: absolute;
+            left: 82px;
+            top: 14px;
+            font-size: 14px;
+            width:22px;
+            height: 20px;  
+          }
+          &__month{
+            @extend .date-select__year;
+            left: 184px;
+
+          }
+          &__day{
+            @extend .date-select__year;
+            left: 287px;
+
+          }
+          &__chevron--year{
+            position: absolute;
+            left: 50px;
+            top: 13px;
+            background-color: white;
+            color: #888;
+            font-size: 16px;
+            width:22px;
+            height: 20px;          
+          }
+          &__chevron--month{
+            @extend .date-select__chevron--year;
+            left: 152px;
+          }
+          &__chevron--day{
+            @extend .date-select__chevron--year;
+            left: 255px;
+          }
+          
         }
+
+
 
         input{
           width: 100%;
@@ -112,37 +141,13 @@
           margin-top: 8px;
           display: flex;
           position:relative;
-
-          &--year{
-            position:relative;
-          }
-
-          &--month{
-            position:relative;
-          }
-
-          &--date{
-            position:relative;
-          }
-
-          .select-default{
-            display: block;
-            background-color:white;
-            width:76px;
-            height: 50px;
-            padding: 0 10px; 
-            font-size: 14px;
-          }
-
-          .chevron-date_select{
-            position: absolute;
-            left: 50px;
-            top: 14px;
+          .prefecture-select{
             background-color: white;
-            color: #888;
-            font-size: 16px;
-            width:22px;
-            height: 20px;          
+            width: 500px;
+            margin-top: 8px;
+            height: 52px;
+            padding: 10px 16px 8px;
+            font-size: 14px
           }
 
           .chevron-prefecture{
@@ -155,7 +160,6 @@
             width:22px;
             height: 20px; 
           }
-
 
           span{
             margin: auto 0;

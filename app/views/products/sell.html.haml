@@ -26,41 +26,13 @@
             %label.form-part__label カテゴリー
             %span必須
             .form-part__select-box
-              = f.collection_select :id, Category.all, :id, :name
+              = f.collection_select :category, Category.where(parent_id: nil), :id, :name, :prompt => "---"
               %i.fas.fa-chevron-down
             .form-part__select-box
-              %select
-                %option(value="")---
-                %option(value="1")レディース
-                %option(value="2")メンズ
-                %option(value="3")ベビー・キッズ
-                %option(value="4")インテリア・住まい・小物
-                %option(value="5")本・音楽・ゲーム
-                %option(value="6")おもちゃ・ホビー・グッズ
-                %option(value="7")コスメ・香水・美容
-                %option(value="8")家電・スマホ・カメラ
-                %option(value="9")スポーツ・レジャー
-                %option(value="10")ハンドメイド
-                %option(value="11")チケット
-                %option(value="12")自動車・オートバイ
-                %option(value="13")その他
+              = f.collection_select :category, Category.where(parent_id: 1), :id, :name, :prompt => "---"
               %i.fas.fa-chevron-down
             .form-part__select-box
-              %select
-                %option(value="")---
-                %option(value="1")レディース
-                %option(value="2")メンズ
-                %option(value="3")ベビー・キッズ
-                %option(value="4")インテリア・住まい・小物
-                %option(value="5")本・音楽・ゲーム
-                %option(value="6")おもちゃ・ホビー・グッズ
-                %option(value="7")コスメ・香水・美容
-                %option(value="8")家電・スマホ・カメラ
-                %option(value="9")スポーツ・レジャー
-                %option(value="10")ハンドメイド
-                %option(value="11")チケット
-                %option(value="12")自動車・オートバイ
-                %option(value="13")その他
+              = f.collection_select :category, Category.where(parent_id: 14), :id, :name, :prompt => "---"
               %i.fas.fa-chevron-down
           .form-part__select.size
             %label.form-part__label サイズ
@@ -70,7 +42,7 @@
               %i.fas.fa-chevron-down
           .form-part__select.brand
             %label.form-part__label ブランド
-            %span任意
+            %span.better 任意
             %input(type="text" placeholder="例）シャネル")/
           .form-part__select.status
             %label.form-part__label 商品の状態

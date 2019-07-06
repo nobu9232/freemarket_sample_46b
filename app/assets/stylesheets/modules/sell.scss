@@ -252,16 +252,16 @@
     padding: 2px 4px;
     font-size: 12px;
     border-radius: 2px;
+
+    &.better {
+      background: #ccc;
+    }
   }
   
 }
 
 
 .brand {
-  span {
-    @extend span;
-    background: #ccc;
-  }
 
   input {
     box-sizing: border-box;

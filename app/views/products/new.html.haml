@@ -26,19 +26,19 @@
             %label.form-part__label カテゴリー
             %span必須
             .form-part__select-box
-              = f.collection_select :category, Category.where(parent_id: nil), :id, :name, :prompt => "---"
+              = f.collection_select :category, Category.where(parent_id: nil), :id, :name, prompt: "---"
               %i.fas.fa-chevron-down
             .form-part__select-box
-              = f.collection_select :category, Category.where(parent_id: 1), :id, :name, :prompt => "---"
+              = f.collection_select :category, Category.where(parent_id: 1), :id, :name, prompt: "---"
               %i.fas.fa-chevron-down
             .form-part__select-box
-              = f.collection_select :category, Category.where(parent_id: 14), :id, :name, :prompt => "---"
+              = f.collection_select :category, Category.where(parent_id: 14), :id, :name, prompt: "---"
               %i.fas.fa-chevron-down
           .form-part__select.size
             %label.form-part__label サイズ
             %span必須
             .form-part__select-box
-              = f.collection_select :size_id, Size.all,:id,:name
+              = f.collection_select :size_id, Size.all,:id,:name, prompt: "---"
               %i.fas.fa-chevron-down
           .form-part__select.brand
             %label.form-part__label ブランド
@@ -66,13 +66,13 @@
             %label.form-part__label 配送の方法
             %span必須
             .form-part__select-box
-              = f.collection_select :shipping_method, Shipping_method.all, :id, :name
+              = f.collection_select :shipping_method, Shipping_method.all, :id, :name, prompt: "---"
               %i.fas.fa-chevron-down
           .form-part__select
             %label.form-part__label 配送元の地域
             %span必須
             .form-part__select-box
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
               %i.fas.fa-chevron-down
           .form-part__select
             %label.form-part__label 発送までの日数

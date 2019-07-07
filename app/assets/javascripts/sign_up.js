@@ -16,17 +16,10 @@ $(document).on('turbolinks:load', function() {
     $("html,body").scrollTop(0);
   }
 
-  // $('.').on('click', function () {
-  //   transitionContainer("second", "third","支払い方法入力");
-  //   transitionStatusBar();
-  // });  
-
   $('.button__third').on('click', function () {
     transitionContainer("third", "fourth","会員登録完了");
     transitionStatusBar();
   });  
-
-
 
 
 // 　formのバリデーション機能
@@ -116,11 +109,5 @@ $(document).on('turbolinks:load', function() {
           transitionStatusBar();
       }
     });
-
-
-
-
-
-
 
 });

@@ -11,19 +11,22 @@
             = f.label "ニックネーム"
             %span 必須
             = f.text_field :nickname, autofocus: true, calss: "input-default", placeholder: "例）メルカリ太郎"
+            %ul.error__nickname
           .form-group
             = f.label "メールアドレス"
             %span 必須
             = f.email_field :email, autofocus: true, autocomplete: "email", calss: "input-default", placeholder: "PC・携帯どちらでも可"
-  
+            %ul.error__email
           .form-group
             = f.label "パスワード"
             %span 必須
             = f.password_field :password, autocomplete: "new-password", calss: "input-default", placeholder: "6文字以上"
+            %ul.error__password
           .form-group
             = f.label "パスワード(確認)"
             %span 必須
             = f.password_field :password_confirmation, autocomplete: "new-password", calss: "input-default", placeholder: "6文字以上"
+            %ul.error__password_confirmation
           .form-group
             %h3
               本人確認
@@ -34,41 +37,42 @@
               = fa.label "姓(全角)"
               %span 必須
               = fa.text_field :family_name, class: "input-default", placeholder: "例) 山田"
+              %ul.error__family_name
             .form-group
               = fa.label "名(全角)"
               %span 必須
               = fa.text_field :first_name, class: "input-default", placeholder: "例) 彩"
+              %ul.error__first_name
             .form-group
               = fa.label "姓カナ(全角)"
               %span 必須
-              = fa.text_field :family_name_kana, class: "input-default", placeholder: "例) ヤマダ"                
+              = fa.text_field :family_name_kana, class: "input-default", placeholder: "例) ヤマダ"  
+              %ul.error__family_name_kana
             .form-group
               = fa.label "名カナ(全角)"
               %span 必須
               = fa.text_field :first_name_kana, class: "input-default", placeholder: "例) アヤ"
+              %ul.error__first_name_kana
             .form-group
               = fa.label "生年月日"
               %span 必須
               .date-select
-                = fa.date_select :date_of_birth, {use_month_numbers: true,start_year: 1900, end_year: (Time.now.year), include_blank: '--', date_separator: '年'},
+                = fa.date_select :date_of_birth, {use_month_numbers: true,start_year: 1900, end_year: (Time.now.year), include_blank: '--', date_separator: '&emsp;&nbsp;'},
                 {class: "date-select__tab"}
+                .date-select__year
+                  年
+                .date-select__month
+                  月
+                .date-select__day
+                  日
+                .date-select__chevron--year
+                  %i.fa.fa-chevron-down
+                .date-select__chevron--month
+                  %i.fa.fa-chevron-down
+                .date-select__chevron--day
+                  %i.fa.fa-chevron-down
+                %ul.error__date_of_birth
 
-              -# .form-group__select-wrap
-              -#   .form-group__select-wrap--year
-              -#     = select_tag('year',options_for_select(1900..2019), include_blank: '--', class:'select-default')
-              -#     %i.fa.fa-chevron-down
-              -#     %span
-              -#       年
-              -#   .form-group__select-wrap--month
-              -#     = select_tag('month',options_for_select(1..12), include_blank: '--', class:'select-default')
-              -#     %i.fa.fa-chevron-down
-              -#     %span
-              -#       月
-              -#   .form-group__select-wrap--date
-              -#     = select_tag('date',options_for_select(1..31), include_blank: '--', class:'select-default')
-              -#     %i.fa.fa-chevron-down
-              -#     %span
-              -#       日
             .form-group__form-info
               ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
             .next-content
@@ -89,20 +93,24 @@
               = fa.label "郵便番号"
               %span 必須
               = fa.text_field :postal_code, class: "input-default", placeholder: "例) 123-4567"
+              %ul.error__postal_code
             .form-group
               = fa.label "都道府県"
               %span 必須
               .form-group__select-wrap
-                = fa.collection_select :prefecture, Prefecture.all, :id, :name, {}, class: "select"
+                = fa.collection_select :prefecture, Prefecture.all, :id, :name, {}, class: "prefecture-select"
                 %i.fa.fa-chevron-down.chevron-prefecture
+                %ul.error__prefecture
             .form-group
               = fa.label "市区町村"
               %span 必須
-              = fa.text_field :city, class: "input-default", placeholder: "例) 横浜市緑区"                
+              = fa.text_field :city, class: "input-default", placeholder: "例) 横浜市緑区"
+              %ul.error__city              
             .form-group
               = fa.label "番地"
               %span 必須
-              = fa.text_field :address, class: "input-default", placeholder: "例) 青山1-1-1"        
+              = fa.text_field :address, class: "input-default", placeholder: "例) 青山1-1-1"
+              %ul.error__address       
             .form-group
               = fa.label "建物名"
               %span.gray 任意
@@ -115,5 +123,10 @@
               次へ進む
 
         .signup-container--third
-          .actions
-            = f.submit "登録完了" , class: "button"
+          .button.button__third
+            次へ進む
+        .signup-container--fourth
+          .comlited
+            ありがとうございます
+          会員登録が完了しました。          
+          = f.submit "メルカリをはじめる" , class: "button"

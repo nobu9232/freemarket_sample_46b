@@ -1,6 +1,7 @@
 class Size < ActiveHash::Base
+  include ActiveHash::Associations
+  has_many :products
   self.data = [
-      {id: '', name: '---'},
       {id: 1, name: 'XXS以下'}, 
       {id: 2, name: 'XS(SS)'}, 
       {id: 3, name: 'S'},

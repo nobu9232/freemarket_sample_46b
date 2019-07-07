@@ -1,7 +1,7 @@
 .container.product-form
   %h1.form-header 商品の情報を入力
   .form-body
-    = form_with model: @product do |f|
+    = form_with url: "/products" do |f|
       .picture.form-part
         %label.form-part__label.big 出品画像
         %span必須
@@ -38,7 +38,7 @@
             %label.form-part__label サイズ
             %span必須
             .form-part__select-box
-              = f.collection_select :size, Size.all, :id, :name
+              = f.collection_select :size_id, Size.all,:id,:name
               %i.fas.fa-chevron-down
           .form-part__select.brand
             %label.form-part__label ブランド
@@ -92,7 +92,7 @@
               %span必須
             .price-set__right
               %small¥
-              %input(type="text" placeholder="例）300")/
+              = f.text_field :sales_price, placeholder: "例）300"
           %hr/
           .fee
             %p 販売手数料(10%)
@@ -115,6 +115,6 @@
           また、出品をもちまして
           = link_to"加盟店規約", "#"
           に同意したことになります。
-        %input(type="submit" value="出品する")/
+        = f.submit "出品する"
         = link_to "もどる", "#", class: "back-button"
 

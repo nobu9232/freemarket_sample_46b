@@ -1,6 +1,4 @@
 
-// 仮置き
-
 .signup-container{
   &--first{
     
@@ -9,15 +7,15 @@
   &--second{
     display: none;
   }
-  
-}
 
-.next-button{
-  margin-top: 40px;
-  width: 100%;
-  height: 50px;
-  font-size: 14px;
-  color: #FFF;
-  margin-bottom: 30px;
-  background-color: #ea352d;
+  &--third{
+    display: none;
+  }
+
+  &--fourth{
+    margin-top: 24px;
+    display: none;
+    text-align: center;
+  }
+  
 }

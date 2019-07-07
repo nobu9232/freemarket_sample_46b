@@ -1,4 +1,7 @@
 class Shipping_method < ActiveHash::Base
+  include ActiveHash::Associations
+  has_many :products
+
   self.data = [
       {id: 1, name: '未定'}, 
       {id: 2, name: 'らくらくメルカリ便'}, 

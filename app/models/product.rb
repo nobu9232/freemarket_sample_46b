@@ -20,10 +20,10 @@ class Product < ApplicationRecord
   has_many :products_categories
 
   # 都道府県active_hash
-  belongs_to_active_hash :prefecture, class_name: "Prefecture", foreign_key: "ship_form_location"
+  belongs_to_active_hash :prefecture, class_name: "Prefecture", foreign_key: "prefecture_id"
 
   # 配送方法active_hash
-  belongs_to_active_hash :shipping_method, class_name: "Shipping_method", foreign_key: "shipping_method"
+  belongs_to_active_hash :shipping_method, class_name: "Shipping_method", foreign_key: "shipping_method_id"
 
   # サイズactive_hash
   belongs_to_active_hash :size, class_name: "Size", foreign_key: "size_id"

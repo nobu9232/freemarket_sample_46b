@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
   end
 
   def create
-    binding.pry
     @brand = Brand.find_by(brand_name: brand_params[:brand_name])
     if @brand == nil
       @brand = Brand.create(brand_params)

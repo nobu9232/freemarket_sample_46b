@@ -7,7 +7,7 @@
         %span必須
         %p.form-part__explane 最大10枚までアップロードできます
         .picture__drop-box
-          = f.file_field(:file)
+          = f.file_field(:image)
           %preドラッグアンドドロップ
           %preまたはクリックしてファイルをアップロード
       .overview.form-part
@@ -26,13 +26,13 @@
             %label.form-part__label カテゴリー
             %span必須
             .form-part__select-box
-              = f.collection_select :category, Category.where(parent_id: nil), :id, :name, prompt: "---"
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, prompt: "---"
               %i.fas.fa-chevron-down
             .form-part__select-box
-              = f.collection_select :category, Category.where(parent_id: 1), :id, :name, prompt: "---"
+              = f.collection_select :category_child_id, Category.where(ancestry: "1"), :id, :name, prompt: "---"
               %i.fas.fa-chevron-down
             .form-part__select-box
-              = f.collection_select :category, Category.where(parent_id: 14), :id, :name, prompt: "---"
+              = f.collection_select :category_grandchild_id, Category.where(ancestry: "1/14"), :id, :name, prompt: "---"
               %i.fas.fa-chevron-down
           .form-part__select.size
             %label.form-part__label サイズ
@@ -43,7 +43,7 @@
           .form-part__select.brand
             %label.form-part__label ブランド
             %span.better 任意
-            %input(type="text" placeholder="例）シャネル")/
+            = f.text_field :brand_name, placeholder: "例）シャネル"
           .form-part__select.status
             %label.form-part__label 商品の状態
             %span必須

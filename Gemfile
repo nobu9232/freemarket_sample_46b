@@ -84,3 +84,4 @@ gem 'active_hash'
 gem 'gretel'
 gem "jquery-rails"
 gem 'dropzonejs-rails'
+gem 'ancestry'

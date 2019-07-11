@@ -33,5 +33,18 @@ class Product < ApplicationRecord
   #イメージとのアソシエーション
   has_many :images, class_name: "Image", dependent: :destroy
 
-
+  #バリデーション
+  validates :name, presence: true
+  validates :text, presence: true
+  validates :category_id, presence: true
+  validates :category_child_id, presence: true
+  validates :category_groundchild_id, presence: true
+  validates :size_id, presence: true
+  validates :condition, presence: true
+  validates :shipping_charge, presence: true
+  validates :shipping_method_id, presence: true
+  validates :prefecture_id, presence: true
+  validates :shipping_days, presence: true
+  validates :sales_price, presence: true
+  validates :brand_id, presence: true
 end

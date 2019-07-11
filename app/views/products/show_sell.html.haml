@@ -1,4 +1,4 @@
-- breadcrumb :item
+- breadcrumb :exhibitionDetail
 .items-details
   .container
     .items-contents
@@ -82,7 +82,7 @@
                 5~6年で発送
       .item-price
         .item-price__bold
-          %span
+          %span.black
             ¥ 5,000,000
         .item-price__tax
           %span
@@ -90,11 +90,8 @@
         .item-price__fee
           %span
             送料込み
-      .item-buy-btn
-        = link_to do
-          購入画面に進む
       .item-date
-        %p.item-date__inner<
+        %p.item-date__inner
           魔人ブウです。
           \
           魔人ブウです。
@@ -134,6 +131,17 @@
             %span
               あんしん・あんぜんへの取り組み
     .message-contents
+      .message-contents__form
+        %button.red
+          商品の編集
+        %p.or
+          or
+        %button
+          出品を一旦停止する
+        %button.margin
+          この商品を削除する
+
+    .message-contents
       %form.message-contents__form
         %p
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -141,26 +149,3 @@
         %button
           %span
             コメントする
-    .item-nav
-      .item-nav__prev
-        = link_to do
-          %i.fas.fa-chevron-left
-          %span
-            フリーザ
-      .item-nav__next
-        = link_to do
-          %span
-            セル
-          %i.fas.fa-chevron-right
-    .socialmedia-box
-      %ul.app-content
-        %li
-          = link_to do
-            %i.fab.fa-facebook-square
-        %li
-          = link_to do
-            %i.fab.fa-twitter-square           
-        %li
-          = link_to do
-            %i.fab.fa-pinterest-square
-

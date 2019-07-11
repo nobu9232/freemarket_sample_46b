@@ -26,8 +26,12 @@ class ProductsController < ApplicationController
     else
       render action: :new, layout: "simple_layout"
     end
+  end
+    
+  def show_sell
     
   end
+
 
   def confirmation  
     render :confirmation, layout: "simple_layout"

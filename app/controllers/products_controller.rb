@@ -14,7 +14,9 @@ class ProductsController < ApplicationController
   def create
     @brand = Brand.find_by(brand_name: brand_params[:brand_name])
     if !@brand
-      @brand = Brand.create(brand_params)
+      Brand.transaction do
+        @brand = Brand.create(brand_params)
+      end
     end
     @product_params = product_params.merge(brand_id: @brand[:id])
     @product = Product.new(@product_params)

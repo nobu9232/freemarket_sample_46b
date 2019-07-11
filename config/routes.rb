@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :users do
     collection do
+      get 'card_form'
+      post 'card_create'
       get 'address'
       get 'registration'
       get 'signup'

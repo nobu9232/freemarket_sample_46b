@@ -13,15 +13,20 @@ class ProductsController < ApplicationController
 
   def create
     @brand = Brand.find_by(brand_name: brand_params[:brand_name])
-    if @brand == nil
+    if !@brand
       @brand = Brand.create(brand_params)
     end
     @product_params = product_params.merge(brand_id: @brand[:id])
-    @product = Product.create(@product_params)
-    @image = Image.new(image_params)
-    @image.product_id = @product[:id]
-    @image.save
-    render :index
+    @product = Product.new(@product_params)
+    if @product.save
+      @image = Image.new(image_params)
+      @image.product_id = @product[:id]
+      @image.save
+      render :index
+    else
+      render action: :new, layout: "simple_layout"
+    end
+    
   end
 
   def confirmation  
@@ -35,7 +40,7 @@ class ProductsController < ApplicationController
       :text, 
       :category_id, 
       :category_child_id, 
-      :category_grondchild_id, 
+      :category_groundchild_id, 
       :size_id, 
       :condition, 
       :shipping_charge, 

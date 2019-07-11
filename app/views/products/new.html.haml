@@ -1,7 +1,7 @@
 .container.product-form
   %h1.form-header 商品の情報を入力
   .form-body
-    = form_with url: "/products" do |f|
+    = form_with model: @product, url: "/products" do |f|
       .picture.form-part
         %label.form-part__label.big 出品画像
         %span必須
@@ -32,7 +32,7 @@
               = f.collection_select :category_child_id, Category.where(ancestry: "1"), :id, :name, prompt: "---"
               %i.fas.fa-chevron-down
             .form-part__select-box
-              = f.collection_select :category_grandchild_id, Category.where(ancestry: "1/14"), :id, :name, prompt: "---"
+              = f.collection_select :category_groundchild_id, Category.where(ancestry: "1/14"), :id, :name, prompt: "---"
               %i.fas.fa-chevron-down
           .form-part__select.size
             %label.form-part__label サイズ

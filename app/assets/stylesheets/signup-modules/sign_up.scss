@@ -1,0 +1,21 @@
+
+.signup-container{
+  &--first{
+    
+  }
+
+  &--second{
+    display: none;
+  }
+
+  &--third{
+    display: none;
+  }
+
+  &--fourth{
+    margin-top: 24px;
+    display: none;
+    text-align: center;
+  }
+  
+}

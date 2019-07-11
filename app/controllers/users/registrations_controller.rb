@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     def new
       @user = User.new
       @user_detail = @user.build_user_detail
+      render :new, layout: "sign_up_layout"
     end
 
   # POST /resource

@@ -1,0 +1,12 @@
+.error-text{
+    margin-top :8px;
+    color: #ea352d;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.alert-text{
+    @extend .error-text;
+    margin-bottom: 24px;
+    
+}

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     collection do
       get 'card_form'
       post 'card_create'
+      post 'pay'
       get 'address'
       get 'registration'
       get 'signup'

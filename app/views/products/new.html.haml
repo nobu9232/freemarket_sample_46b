@@ -1,0 +1,120 @@
+.container.product-form
+  %h1.form-header 商品の情報を入力
+  .form-body
+    = form_with model: @product, url: "/products" do |f|
+      .picture.form-part
+        %label.form-part__label.big 出品画像
+        %span必須
+        %p.form-part__explane 最大10枚までアップロードできます
+        .picture__drop-box
+          = f.file_field(:image)
+          %preドラッグアンドドロップ
+          %preまたはクリックしてファイルをアップロード
+      .overview.form-part
+        .overview__name
+          %label.form-part__label 商品名
+          %span 必須
+          = f.text_field :name, placeholder: "商品名（必須40文字まで）"
+        .overview__explane
+          %label.form-part__label 商品の説明
+          %span必須
+          = f.text_area :text, rows: "5", placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
+      .detail.form-part
+        %h2.form-part__title 商品の詳細
+        .detail__right
+          .form-part__select.category
+            %label.form-part__label カテゴリー
+            %span必須
+            .form-part__select-box
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, prompt: "---"
+              %i.fas.fa-chevron-down
+            .form-part__select-box
+              = f.collection_select :category_child_id, Category.where(ancestry: "1"), :id, :name, prompt: "---"
+              %i.fas.fa-chevron-down
+            .form-part__select-box
+              = f.collection_select :category_groundchild_id, Category.where(ancestry: "1/14"), :id, :name, prompt: "---"
+              %i.fas.fa-chevron-down
+          .form-part__select.size
+            %label.form-part__label サイズ
+            %span必須
+            .form-part__select-box
+              = f.collection_select :size_id, Size.all,:id,:name, prompt: "---"
+              %i.fas.fa-chevron-down
+          .form-part__select.brand
+            %label.form-part__label ブランド
+            %span.better 任意
+            = f.text_field :brand_name, placeholder: "例）シャネル"
+          .form-part__select.status
+            %label.form-part__label 商品の状態
+            %span必須
+            .form-part__select-box
+              = f.select :condition, Product.conditions.keys.map {|k| [k, k]}
+              %i.fas.fa-chevron-down
+      .delivery.form-part
+        .delivery__left
+          %h2.form-part__title 配送について
+          = link_to "#" do
+            %i.fas.fa-question-circle
+        .delivery__right
+          .form-part__select
+            %label.form-part__label 配送料の負担
+            %span必須
+            .form-part__select-box
+              = f.select :shipping_charge, Product.shipping_charges.keys.map {|k| [k, k]}
+              %i.fas.fa-chevron-down
+          .form-part__select
+            %label.form-part__label 配送の方法
+            %span必須
+            .form-part__select-box
+              = f.collection_select :shipping_method_id, Shipping_method.all, :id, :name, prompt: "---"
+              %i.fas.fa-chevron-down
+          .form-part__select
+            %label.form-part__label 配送元の地域
+            %span必須
+            .form-part__select-box
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
+              %i.fas.fa-chevron-down
+          .form-part__select
+            %label.form-part__label 発送までの日数
+            %span必須
+            .form-part__select-box
+              = f.select :shipping_days, Product.shipping_days.keys.map {|k| [k, k]}
+              %i.fas.fa-chevron-down
+      .price.form-part
+        .price__left
+          %h2.form-part__title 販売価格(300〜9,999,999)
+          = link_to "#" do
+            %i.fas.fa-question-circle
+        .form-part__body.price__right
+          .price-set
+            .price-set__left
+              %label.form-part__label 価格
+              %span必須
+            .price-set__right
+              %small¥
+              = f.text_field :sales_price, placeholder: "例）300"
+          %hr/
+          .fee
+            %p 販売手数料(10%)
+            %p -
+          %hr/
+          .venefit
+            %p 販売利益
+            %p -
+      .confirm.form-part
+        %p
+          = link_to"禁止されている出品","#"
+          、
+          = link_to"行為","#"
+          を必ずご確認ください。
+        %p
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to"偽ブランドの販売", "#"
+          は犯罪であり処罰される可能性があります。
+        %p
+          また、出品をもちまして
+          = link_to"加盟店規約", "#"
+          に同意したことになります。
+        = f.submit "出品する"
+        = link_to "もどる", "#", class: "back-button"
+

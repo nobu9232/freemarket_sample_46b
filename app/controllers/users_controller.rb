@@ -20,10 +20,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.json {
         require 'payjp'
-        Payjp.api_key = "sk_test_47f2b808edb7bc79cf692300"
+        Payjp.api_key = ENV['PAYJP_SECRET_KEY']
         # 今回は１ユーザー１カード情報のみとする
         if current_user.cards ==[]
-          response_customer = Payjp::Customer.create(card: params[:token])
+          response_customer = Payjp::Customer.create(card: payjp_params[:token])
           current_user.cards.create(customer_id: response_customer.id,user_id: current_user.id) 
         end
       }
@@ -32,12 +32,13 @@ class UsersController < ApplicationController
 
   def pay
     @product = Product.find(1)
-    Payjp.api_key = "sk_test_47f2b808edb7bc79cf692300"
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     charge = Payjp::Charge.create(
       amount: @product.sales_price,
       customer: current_user.cards.first.customer_id,
       currency: 'jpy',
     )
+    redirect_to buy_products_path
   end
 
   
@@ -53,5 +54,12 @@ class UsersController < ApplicationController
 
   def identification
   end
+
+  private 
+  def payjp_params
+    params.permit(:token)
+  end
+
+
   
 end

@@ -47,8 +47,8 @@ crumb :sold do
   parent :mypage
 end
 
-crumb :item do
-  link "商品名"
+crumb :product do |product|
+  link product.name
   parent :root
 end
 

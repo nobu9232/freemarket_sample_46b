@@ -83,5 +83,6 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'active_hash'
 gem 'gretel'
 gem "jquery-rails"
+gem 'payjp'
 gem 'dropzonejs-rails'
 gem 'ancestry'

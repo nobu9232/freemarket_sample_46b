@@ -12,6 +12,11 @@ crumb :card do
   parent :mypage
 end
 
+crumb :card_create do
+  link "クレジットカード情報入力"#, card_users_path
+  parent :card
+end
+
 crumb :profile do
   link "プロフィール"#, profile_users_path
   parent :mypage

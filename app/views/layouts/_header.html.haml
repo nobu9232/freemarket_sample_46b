@@ -28,7 +28,7 @@
               %i.fa.fa-check
               やることリスト
           %li.nav-right__mypage
-            = link_to do
+            = link_to user_path(current_user[:id]) do
               = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png', class: 'mypage-face', width: '32'
               %span
                 マイページ

@@ -8,10 +8,8 @@ $(function(){
       exp_month: parseInt($("#exp_month").val()),
       exp_year: parseInt($("#exp_year").val())
     };
-    console.log(card)
     Payjp.createToken(card, function(status, response) {
         var token = response.id;
-        console.log(token)
         $.ajax({
           url: '/users/card_create',
           type: "POST",

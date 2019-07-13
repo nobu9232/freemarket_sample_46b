@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :saler_user, class_name: "User"
+  belongs_to :seller_user, class_name: "User"
   belongs_to :buyer_user, class_name: "User"
 
   # 取引段階enum
@@ -16,7 +16,9 @@ class Product < ApplicationRecord
   enum condition: { "---":0, "新品。未使用":1, "未使用に近い":2, "目立った傷や汚れなし":3, "やや傷や汚れあり":4, "傷や汚れあり":5, "全体的に状態が悪い":6}, _suffix: true
 
   # カテゴリーとのアソシエーション
-  has_many :categories, dependent: :destroy  
+  belongs_to :category
+  belongs_to :category_child, class_name: "Category"
+  belongs_to :category_groundchild, class_name: "Category"
 
   # 都道府県active_hash
   belongs_to_active_hash :prefecture, class_name: "Prefecture", foreign_key: "prefecture_id"

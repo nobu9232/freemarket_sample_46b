@@ -15,5 +15,8 @@ class ProductsController < ApplicationController
     render :confirmation, layout: "simple_layout"
   end
 
+  def buy
+    render :buy, layout: "simple_layout"
+  end
 
 end

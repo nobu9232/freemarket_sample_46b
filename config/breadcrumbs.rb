@@ -51,3 +51,8 @@ crumb :item do
   link "商品名"
   parent :root
 end
+
+crumb :exhibitionDetail do
+  link "出品商品画面"#, sold_users_path
+  parent :exhibition
+end

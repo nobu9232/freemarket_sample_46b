@@ -12,7 +12,8 @@
  *
  *= require_tree .
  *= require_self
- */
+ *= require dropzone/dropzone
+*/
 @import "./reset";
 @import "./font-awesome-sprockets";
 @import "./font-awesome";

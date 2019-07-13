@@ -28,6 +28,7 @@
         height: 420px;
         width: 620px;
         margin: 16px 0 0;
+        border: none;
 
         &__image {
           height: 375px;
@@ -126,6 +127,10 @@
           font-weight: 600;
           margin: 0 16px 0 0;
           color: #ea352d;
+          .black{
+            color: black;
+          }
+ 
         }
 
         &__tax {
@@ -299,10 +304,22 @@
           color: #fff;
           outline: none;
           cursor: pointer;
-
-          span {
-            font-size: 14px;
-          }
+          font-size: 14px;
+        }
+        .red{
+          background: #ea352d;
+          border: 1px solid #ea352d;
+        }
+        .or{
+          display: block;
+          margin:0 auto;
+          margin-top :8px;
+          background: #fff;
+          text-align: center;
+          font-size: 16px;
+        }
+        .margin{
+          margin-top: 16px;
         }
       }
     }

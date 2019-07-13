@@ -1,6 +1,9 @@
 - breadcrumb :logout
 .container
   = render 'side_bar'
-  = render 'logout'
+  .content
+    .logout
+      = link_to destroy_user_session_path, method: :delete, class: "logout__btn" do
+        %pログアウト
   = render 'shared/footer-btn'
 

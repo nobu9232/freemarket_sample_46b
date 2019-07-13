@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.order(id: "DESC").includes(:product_images)
+    @products = Product.order(id: "DESC").includes(:images)
   end
 
   def show

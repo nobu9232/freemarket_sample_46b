@@ -1,7 +1,7 @@
 %header.site-header 
   .header-contents
     .header-contents__top
-      = link_to "/"do
+      = link_to root_path do
         = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2155439107', class: 'mercari-logo', height: '36', width: '134'
       %form
         %input.input-box__text{name: 'keyword', placeholder: '何かお探しですか？', type: 'search', value: ''}
@@ -35,8 +35,8 @@
       - else
         %ul.nav-right
           %li.nav-right__signup
-            =link_to '/users/signup' do
+            =link_to new_user_registration_path do
               新規会員登録
           %li
-            =link_to '/users/sign_in', class: "nav-right__login" do
+            =link_to user_session_path, class: "nav-right__login" do
               ログイン     

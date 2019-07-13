@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       get 'sell'
       get 'confirmation'
+      get 'buy'
     end
   end
 
@@ -15,8 +16,6 @@ Rails.application.routes.draw do
       get 'card_form'
       post 'card_create'
       post 'pay'
-      get 'address'
-      get 'registration'
       get 'signup'
       get 'profile'
       get 'card'

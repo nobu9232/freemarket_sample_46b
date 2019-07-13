@@ -3,8 +3,7 @@
     .item-boxs
       = link_to do
         .item-boxs__photo
-          - product.images.limit(1).each do |image|
-            = image_tag image.images, height: '220px', width: '215'
+          = image_tag product.images.first.image.url, height: '220px', width: '215'
         .boxs-body
           %h2.boxs-body__name
             = product.name

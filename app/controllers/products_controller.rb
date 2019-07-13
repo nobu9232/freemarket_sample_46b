@@ -30,34 +30,37 @@ class ProductsController < ApplicationController
       render action: :new, layout: "simple_layout"
     end
   end
-    
+
   def show_sell
-    
+
   end
 
 
-  def confirmation  
+  def confirmation
     render :confirmation, layout: "simple_layout"
   end
 
-  private 
+  def buy
+    render :buy, layout: "simple_layout"
+  end
+  private
   def product_params
     params.permit(
-      :name, 
-      :text, 
-      :category_id, 
-      :category_child_id, 
-      :category_groundchild_id, 
-      :size_id, 
-      :condition, 
-      :shipping_charge, 
-      :shipping_method_id, 
-      :prefecture_id, 
-      :shipping_days, 
+      :name,
+      :text,
+      :category_id,
+      :category_child_id,
+      :category_groundchild_id,
+      :size_id,
+      :condition,
+      :shipping_charge,
+      :shipping_method_id,
+      :prefecture_id,
+      :shipping_days,
       :sales_price
     ).merge(status: 0, seller_user_id: current_user.id)
   end
-  
+
   def image_params
     params.permit(:image)
   end

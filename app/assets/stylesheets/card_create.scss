@@ -1,0 +1,134 @@
+.container {
+  width: 1020px;
+  height: 100%;
+  margin: 0 auto 0;
+  padding: 40px 0 40px 0;
+  .card_create-information {
+    width: 700px;
+    height: 620px;
+
+    background-color: #fff;
+
+    h1 {
+      height: 50px;
+      box-sizing: border-box;
+      padding: 8px 24px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .card_create-content {
+      width: 343px;
+      box-sizing: border-box;
+      padding-top: 40px;
+      margin: 0 auto;
+      border-top: 1px solid #f5f5f5;
+      position: relative;
+
+      .form-inner{
+        margin-bottom: 32px;
+
+        input{
+          width: 100%;
+          box-sizing: border-box;
+          display: block;
+          margin-top: 8px;
+          height: 48px;
+          padding: 10px 16px 8px;
+          font-size: 14px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+
+        label{
+          font-weight: 600;
+          font-size: 14px;
+        }
+
+        span{
+          background-color: #ea352d;
+          margin: 0 0 0 8px;
+          color: white;
+          border-radius: 2px;
+          font-size: 14px;
+          padding: 2px 4px;
+        }
+
+        .card{
+          margin: 8px;
+          &__list{
+            display: inline;
+          }
+        }
+
+        &__right-text{
+          margin-top: 8px;
+          text-align: right;
+          color: #0099e8;
+          font-size: 14px;
+        }
+        
+        .exp-select{
+          margin-top: 8px;
+          position: relative;
+          #exp_month{
+            width: 132px;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            cursor: pointer;
+          }
+          #exp_year{
+            @extend #exp_month;
+          }
+          &__month{
+            margin :0;
+            background: #fff;
+            color: #333;
+          }
+          &__year{
+            @extend  .exp-select__month;
+          }
+
+          &__chevron--month{
+            position: absolute;
+            right: 215px;
+            top: 15px;
+            background-color: white;
+            color: #888;
+            font-size: 18px;
+            width:22px;
+          }
+
+          &__chevron--year{
+            @extend .exp-select__chevron--month;
+            right: 50px;
+          }
+
+
+        }
+
+      }
+      .button{
+        display: box;
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        font-size: 14px;
+        color: #FFF;
+        margin-bottom: 30px;
+        background-color: #ea352d;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_one :user_detail, dependent: :destroy
   has_many :products
+  has_many :cards
   ##- has_many :orders
   accepts_nested_attributes_for :user_detail
 

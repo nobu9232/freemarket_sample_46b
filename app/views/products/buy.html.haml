@@ -1,7 +1,7 @@
 .confirmation-contents
   .main-container
     .tops-content
-      商品を確定しますか？
+      購入が完了しました。
     .buy-content
       = image_tag "https://static.mercdn.net/thumb/photos/m84566995704_1.jpg?1560813026",class: "buy-content__image"
       %p.buy-content__product-name
@@ -11,16 +11,6 @@
           ¥ 7,800
           %span.buy-form__price-shipping-fee
             送料込み
-        .buy-form__buy-accordion
-          ポイントはありません
-        .buy-form__payment
-          .buy-form__payment--left
-            支払い金額
-          .buy-form__payment--right
-            ￥7,800
-        %p.buy-form__error-text
-          配送先と支払い方法の入力を完了してください。
-        = link_to "購入する", pay_users_path, method: :post, class: "buy-form__buy-button", style: "color: white;"
         .user-info
           %h3 配送先
           .user-info__text
@@ -37,3 +27,21 @@
             クレジットカード
           .payment-method__text--right
             = link_to '変更する'
+        .transaction-flow
+          %h3
+            発表通知後の流れ
+          .rate-image
+            %i.fas.fa-laugh
+            %i.fas.fa-meh
+            %i.fas.fa-frown
+
+          .transaction-flow__contents
+            商品を受け取ったら 
+            %br
+            出品者の評価をしましょう。
+            %br
+            購入代金が出品者に振り込まれます。
+            %br
+            評価後に取引は完了です。
+            %br
+          = link_to "マイページへ戻る", user_path, style: "font-weight: bold;"

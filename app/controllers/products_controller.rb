@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
   def show_sell
     set_product
     set_image
+    redirect_to root_path unless user_signed_in? && current_user.id == @product.seller_user_id
   end
 
   def confirmation
@@ -51,15 +52,15 @@ class ProductsController < ApplicationController
   end
 
   def pay
-    @product = Product.find(params[:id])
-    @product.update(buyer_user_id: current_user.id)
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
-    charge = Payjp::Charge.create(
-      amount: @product.sales_price,
-      customer: current_user.cards.first.customer_id,
-      currency: 'jpy',
-    )
-    redirect_to buy_product_path(@product.id)
+      @product = Product.find(params[:id])
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      charge = Payjp::Charge.create(
+        amount: @product.sales_price,
+        customer: current_user.cards.first.customer_id,
+        currency: 'jpy',
+      )
+      @product.update(buyer_user_id: current_user.id, status: 2)
+      redirect_to buy_product_path(@product.id)
   end
 
   private
@@ -96,5 +97,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @image = @product.images.first
   end
+
 
 end

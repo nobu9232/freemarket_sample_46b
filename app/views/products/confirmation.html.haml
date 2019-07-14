@@ -22,7 +22,7 @@
             = @product.sales_price
         %p.buy-form__error-text
           配送先と支払い方法の入力を完了してください。
-        = link_to "購入する", pay_users_path, method: :post, class: "buy-form__buy-button", style: "color: white;"
+        = link_to "購入する", pay_product_path(@product.id), method: :post, class: "buy-form__buy-button", style: "color: white;"
         .user-info
           %h3 配送先
           .user-info__text

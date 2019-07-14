@@ -1,6 +1,6 @@
 .side-bar  
   %ul.side-bar-list
-    = link_to user_path(current_user) do
+    = link_to user_path(current_user), class: "active" do
       %li.side-bar-list__item マイページ
       %i.material-icons keyboard_arrow_right
     = link_to "#" do

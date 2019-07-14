@@ -29,16 +29,12 @@ class UsersController < ApplicationController
     end
   end
 
- 
-
-  
   def profile
   end
 
   def card
   end
   
-
   def sign_out  
   end
 
@@ -50,6 +46,4 @@ class UsersController < ApplicationController
     params.permit(:token)
   end
 
-
-  
 end

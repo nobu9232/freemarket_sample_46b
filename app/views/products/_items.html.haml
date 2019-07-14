@@ -9,7 +9,7 @@
             = product.name
           .boxs-body__price
             ¥
-            = product.sales_price
+            = number_with_delimiter(product.sales_price)
           .boxs-body__tax
             (税込)
 .items-container__product-all

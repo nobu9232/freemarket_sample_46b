@@ -6,6 +6,10 @@
         = @product.name
       .item-main
         .item-main__image
+          -if @product.status == "落札済"
+            .sold-out-badge 
+            .sold-out-badge__letter
+              SOLD  
           = image_tag @image.image.url
         %table.item-main__details
           %tr
@@ -83,7 +87,7 @@
       .item-price
         .item-price__bold
           %span.black
-            =@product.sales_price
+            = number_with_delimiter(@product.sales_price)
         .item-price__tax
           %span
             (税込)

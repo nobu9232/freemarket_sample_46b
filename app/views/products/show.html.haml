@@ -6,6 +6,10 @@
         = @product.name
       .item-main
         .item-main__image
+          -if @product.status == "落札済"
+            .sold-out-badge 
+            .sold-out-badge__letter
+              SOLD  
           = image_tag @image.image.url
         %table.item-main__details
           %tr
@@ -84,16 +88,20 @@
         .item-price__bold
           %span
             ¥ 
-            = @product.sales_price
+            = number_with_delimiter(@product.sales_price)
         .item-price__tax
           %span
             (税込)
         .item-price__fee
           %span
             送料込み
-      .item-buy-btn
-        = link_to confirmation_product_path(@product.id)do
-          購入画面に進む
+      - if @product.status == "落札済"
+        .item-bought-btn
+          売り切れました
+      - else
+        .item-buy-btn
+          = link_to confirmation_product_path(@product.id)do
+            購入画面に進む
       .item-date
         %p.item-date__inner<
           = @product.text

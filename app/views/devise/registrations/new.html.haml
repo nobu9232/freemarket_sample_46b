@@ -98,7 +98,7 @@
               = fa.label "都道府県"
               %span 必須
               .form-group__select-wrap
-                = fa.collection_select :prefecture, Prefecture.all, :id, :name, {}, class: "prefecture-select"
+                = fa.collection_select :prefecture_id, Prefecture.all, :id, :name, {}, class: "prefecture-select"
                 %i.fa.fa-chevron-down.chevron-prefecture
                 %ul.error__prefecture
             .form-group

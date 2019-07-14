@@ -9,7 +9,7 @@
       .buy-form
         %p.buy-form__price
           ¥
-          = @product.sales_price
+          = number_with_delimiter(@product.sales_price)
           %span.buy-form__price-shipping-fee
             送料込み
         .user-info
@@ -50,4 +50,4 @@
             %br
             評価後に取引は完了です。
             %br
-          = link_to "マイページへ戻る", "", style: "font-weight: bold;"
+          = link_to "マイページへ戻る", user_path(current_user), style: "font-weight: bold;"

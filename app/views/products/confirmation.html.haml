@@ -9,7 +9,7 @@
       .buy-form
         %p.buy-form__price
           ¥
-          = @product.sales_price
+          = number_with_delimiter(@product.sales_price)
           %span.buy-form__price-shipping-fee
             送料込み
         .buy-form__buy-accordion
@@ -19,7 +19,7 @@
             支払い金額
           .buy-form__payment--right
             ¥
-            = @product.sales_price
+            = number_with_delimiter(@product.sales_price)
         %p.buy-form__error-text
           配送先と支払い方法の入力を完了してください。
         = link_to "購入する", pay_product_path(@product.id), method: :post, class: "buy-form__buy-button", style: "color: white;"

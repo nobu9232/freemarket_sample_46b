@@ -4,11 +4,7 @@ class ProductsController < ApplicationController
     @products = Product.order(id: "DESC").includes(:images)
   end
 
-  def show
-    @product = Product.find(params[:id])
-    @image = @product.images.first
-    
-  end
+
 
   def new
     render layout: "simple_layout"
@@ -34,18 +30,30 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show_sell
-
+  def show
+    set_product
+    set_image
   end
 
+  def show_sell
+    set_product
+    set_image
+  end
 
   def confirmation
+    set_product
+    set_image
     render :confirmation, layout: "simple_layout"
+
   end
 
   def buy
+    set_product
+    set_image
     render :buy, layout: "simple_layout"
+
   end
+
   private
   def product_params
     params.permit(
@@ -70,6 +78,15 @@ class ProductsController < ApplicationController
 
   def brand_params
     params.permit(:brand_name)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def set_image
+    @product = Product.find(params[:id])
+    @image = @product.images.first
   end
 
 end

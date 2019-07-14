@@ -4,8 +4,6 @@ class ProductsController < ApplicationController
     @products = Product.order(id: "DESC").includes(:images)
   end
 
-
-
   def new
     render layout: "simple_layout"
     @product = Product.new
@@ -44,14 +42,23 @@ class ProductsController < ApplicationController
     set_product
     set_image
     render :confirmation, layout: "simple_layout"
-
   end
 
   def buy
     set_product
     set_image
     render :buy, layout: "simple_layout"
+  end
 
+  def pay
+    @product = Product.find(params[:id])
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    charge = Payjp::Charge.create(
+      amount: @product.sales_price,
+      customer: current_user.cards.first.customer_id,
+      currency: 'jpy',
+    )
+    redirect_to buy_product_path(@product.id)
   end
 
   private

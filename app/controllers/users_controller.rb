@@ -29,16 +29,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def pay
-    @product = Product.find(1)
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
-    charge = Payjp::Charge.create(
-      amount: @product.sales_price,
-      customer: current_user.cards.first.customer_id,
-      currency: 'jpy',
-    )
-    redirect_to buy_products_path
-  end
+ 
 
   
   def profile

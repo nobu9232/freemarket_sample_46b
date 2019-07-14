@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
       @image = Image.new(image_params)
       @image.product_id = @product[:id]
       @image.save
-      render :index
+      redirect_to root_path
     else
       render action: :new, layout: "simple_layout"
     end

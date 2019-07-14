@@ -30,7 +30,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :size, class_name: "Size", foreign_key: "size_id"
 
   #ブランドとのアソシエーション
-  belongs_to :brand, optional: false
+  belongs_to :brand, optional: true
 
   #イメージとのアソシエーション
   has_many :images, class_name: "Image", dependent: :destroy

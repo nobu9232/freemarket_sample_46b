@@ -8,7 +8,7 @@ class CreateUserDetails < ActiveRecord::Migration[5.2]
       t.date :date_of_birth, null: false
       t.string :phone_number, null: false
       t.string :postal_code, null: false
-      t.string :prefecture, null: false
+      t.integer :prefecture_id, null: false, foreign_key: true
       t.string :city, null: false
       t.string :address, null: false
       t.string :building_name

@@ -3,22 +3,28 @@
     .tops-content
       購入が完了しました。
     .buy-content
-      = image_tag "https://static.mercdn.net/thumb/photos/m84566995704_1.jpg?1560813026",class: "buy-content__image"
+      = image_tag @image.image.url, class: "buy-content__image"
       %p.buy-content__product-name
-        オールドコーチ ショルダーバッグ
+        = @product.name
       .buy-form
         %p.buy-form__price
-          ¥ 7,800
+          ¥
+          = @product.sales_price
           %span.buy-form__price-shipping-fee
             送料込み
         .user-info
           %h3 配送先
           .user-info__text
-            〒555-5555 
+            〒
+            = @product.buyer_user.user_detail.postal_code
             %br
-            大阪府大阪市中央区東北浜町2丁目
+            = @product.buyer_user.user_detail.prefecture
+            = @product.buyer_user.user_detail.city
+            = @product.buyer_user.user_detail.address
+            = @product.buyer_user.user_detail.building_name
             %br
-            田中　義昭
+            = @product.buyer_user.user_detail.family_name
+            = @product.buyer_user.user_detail.first_name
           .user-info__text--right
             = link_to '変更する'
         .payment-method

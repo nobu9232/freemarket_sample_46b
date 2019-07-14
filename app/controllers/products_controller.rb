@@ -52,6 +52,7 @@ class ProductsController < ApplicationController
 
   def pay
     @product = Product.find(params[:id])
+    @product.update(buyer_user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     charge = Payjp::Charge.create(
       amount: @product.sales_price,

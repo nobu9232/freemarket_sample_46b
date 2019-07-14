@@ -16,7 +16,12 @@
       justify-content: space-between;
       padding: 0 16px;
       border-top: 1px solid #eee;
-      transition: background-color 3s linear 0;
+      
+      i.material-icons{
+        color: #BBBBBB;
+        font-size: 28px;
+        transition-duration: .3s;
+      }
 
       &:hover {
         background-color: #fafafa;
@@ -33,10 +38,6 @@
         font-family: sans-serif;
       }
 
-      i.material-icons{
-        color: #BBBBBB;
-        font-size: 28px;
-      }
     }
 
       &__title{

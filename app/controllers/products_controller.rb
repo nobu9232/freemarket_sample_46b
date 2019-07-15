@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.order(id: "DESC").includes(:images)
+
   end
 
   def show
@@ -32,7 +33,13 @@ class ProductsController < ApplicationController
   end
 
   def show_sell
+    @product = Product.find(params[:id])
+  end
 
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy  
+    redirect_to root_path
   end
 
 

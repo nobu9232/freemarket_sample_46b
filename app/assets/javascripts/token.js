@@ -18,6 +18,7 @@ $(function(){
         })
         .done(function(){
           //非同期通信成功時の処理
+          window.location.href="/";
         })
         .fail(function(){
           alert('非同期通信失敗')

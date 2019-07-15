@@ -139,7 +139,7 @@
         %button
           出品を一旦停止する
         %button.margin
-          = link_to "この商品を削除する", product_path(@product.id), method: :delete
+          = link_to "この商品を削除する", product_path(@product.id), method: :delete, data: {confirm: "本当に削除しますか？"}
 
     .message-contents
       %form.message-contents__form

@@ -1,58 +1,21 @@
 .items-container__boxs
   - @products.limit(4).each do |product|
-    - if user_signed_in? && current_user.id == product.seller_user_id
-      = link_to "/products/show_sell" do
-        .item-boxs
-          .item-boxs__photo
-            = image_tag product.images.first.image.url, height: '220px', width: '215'
-          .boxs-body
-            %h2.boxs-body__name
-              = product.name
-            .boxs-body__price
-              ¥
-              = product.sales_price
-            .boxs-body__tax
-              (税込)
+    - if user_signed_in? && current_user.id == product.seller_user_id 
+      - show_page = show_sell_product_path(product)
     - else
-      = link_to "/products/show" do
-        .item-boxs
-          .item-boxs__photo
-            = image_tag product.images.first.image.url, height: '220px', width: '215'
-          .boxs-body
-            %h2.boxs-body__name
-              = product.name
-            .boxs-body__price
-              ¥
-              = product.sales_price
-            .boxs-body__tax
-              (税込)
-  .items-container__product-all
-    = link_to do
-      すべての商品を見る
-
--# - if user_signed_in? && current_user.id == product.seller_user_id
--#     = link_to "/products/show_sell" do
--#       .item-boxs
--#         .item-boxs__photo
--#           = image_tag product.images.first.image.url, height: '220px', width: '215'
--#         .boxs-body
--#           %h2.boxs-body__name
--#             = product.name
--#           .boxs-body__price
--#             ¥
--#             = product.sales_price
--#           .boxs-body__tax
--#             (税込)
--#   - else
--#     = link_to "/products/show" do
--#       .item-boxs
--#         .item-boxs__photo
--#           = image_tag product.images.first.image.url, height: '220px', width: '215'
--#         .boxs-body
--#           %h2.boxs-body__name
--#             = product.name
--#           .boxs-body__price
--#             ¥
--#             = product.sales_price
--#           .boxs-body__tax
--#             (税込)
+      - show_page =  product_path(product)
+    = link_to ("#{show_page}") do
+      .item-boxs 
+        .item-boxs__photo
+          = image_tag product.images.first.image.url, height: '220px', width: '215'
+        .boxs-body
+          %h2.boxs-body__name
+            = product.name
+          .boxs-body__price
+            ¥
+            = product.sales_price
+          .boxs-body__tax
+            (税込)
+.items-container__product-all
+  = link_to do
+    すべての商品を見る

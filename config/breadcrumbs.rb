@@ -8,7 +8,7 @@ crumb :mypage do
 end
 
 crumb :card do
-  link "支払い方法"#, card_users_path
+  link "支払い方法", card_users_path
   parent :mypage
 end
 
@@ -28,7 +28,7 @@ crumb :identification do
 end
 
 crumb :logout do
-  link "ログアウト"#, logout_users_path
+  link "ログアウト"
   parent :mypage
 end
 

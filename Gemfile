@@ -86,3 +86,6 @@ gem "jquery-rails"
 gem 'payjp'
 gem 'dropzonejs-rails'
 gem 'ancestry'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'

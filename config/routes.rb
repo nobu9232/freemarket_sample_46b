@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    collection do
+    member do
       get 'card_form'
+    end
+    collection do
       post 'card_create'
       get 'signup'
       get 'profile'

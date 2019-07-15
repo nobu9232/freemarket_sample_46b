@@ -18,7 +18,8 @@ $(function(){
         })
         .done(function(){
           //非同期通信成功時の処理
-          window.location.href="/";
+          var redirect = location.href.split('/card_form');
+          window.location.href= redirect[0];
         })
         .fail(function(){
           alert('非同期通信失敗')

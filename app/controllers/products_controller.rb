@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product ,only: [:show, :show_sell, :confirmation, :buy, :pay]
+  before_action :set_image ,only: [:show, :show_sell, :confirmation, :buy]
 
   def index
     @products = Product.order(id: "DESC").includes(:images)
@@ -29,30 +31,21 @@ class ProductsController < ApplicationController
   end
 
   def show
-    set_product
-    set_image
   end
 
   def show_sell
-    set_product
-    set_image
     redirect_to root_path unless user_signed_in? && current_user.id == @product.seller_user_id
   end
 
   def confirmation
-    set_product
-    set_image
     render :confirmation, layout: "simple_layout"
   end
 
   def buy
-    set_product
-    set_image
     render :buy, layout: "simple_layout"
   end
 
   def pay
-      @product = Product.find(params[:id])
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       charge = Payjp::Charge.create(
         amount: @product.sales_price,

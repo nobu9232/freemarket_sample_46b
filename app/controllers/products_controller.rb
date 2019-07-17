@@ -87,8 +87,7 @@ class ProductsController < ApplicationController
   end
 
   def set_image
-    @product = Product.find(params[:id])
-    @image = @product.images.first
+    @image = Product.find(params[:id]).images.first
   end
 
 

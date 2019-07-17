@@ -116,8 +116,9 @@
               あんしん・あんぜんへの取り組み
     .message-contents
       .message-contents__form
-        %button.red
-          商品の編集
+        = link_to edit_product_path(@product) do
+          %button.red
+            商品の編集
         %p.or
           or
         %button

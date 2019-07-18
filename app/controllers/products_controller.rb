@@ -56,6 +56,9 @@ class ProductsController < ApplicationController
       redirect_to buy_product_path(@product.id)
   end
 
+  def search
+  end
+
   private
   def product_params
     params.permit(

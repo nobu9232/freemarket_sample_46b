@@ -8,18 +8,18 @@
       1 - 
       = @products.count
       件表示
-      - @products.each_slice(4) do |product_row|
-        .product-contents
-          - product_row.each do |product|
-            .product-box
-              = link_to product_path(product)  do
-                = image_tag product.images.first.image.url, width: '160px', height: '160px;'
-                .box-content
-                  .box-content__title
-                    = product.name
-                  .box-content__price
-                    ¥
-                    = number_with_delimiter(product.sales_price)
+    - @products.each_slice(4) do |product_row|
+      .product-contents
+        - product_row.each do |product|
+          .product-box
+            = link_to product_path(product)  do
+              = image_tag product.images.first.image.url, width: '160px', height: '160px;'
+              .box-content
+                .box-content__title
+                  = product.name
+                .box-content__price
+                  ¥
+                  = number_with_delimiter(product.sales_price)
 
 
 

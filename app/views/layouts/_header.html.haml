@@ -3,8 +3,8 @@
     .header-contents__top
       = link_to root_path do
         = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2155439107', class: 'mercari-logo', height: '36', width: '134'
-      %form
-        %input.input-box__text{name: 'keyword', placeholder: '何かお探しですか？', type: 'search', value: ''}
+      = form_tag(search_products_path, method: :get) do
+        = text_field_tag :keyword, "", placeholder: '何かお探しですか？' ,class: "input-box__text"
         %label.input-box__label
           %i.fa.fa-search 
     .header-contents__nav

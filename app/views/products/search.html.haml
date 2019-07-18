@@ -2,34 +2,25 @@
   = render '/users/side_bar'
   .search-contents
     %span.search-word
-      @@@
+      = @keyword
     の検索結果
     .search-number
-      1 - 132件表示
-    .product-contents
-      .product-box
-        = link_to "/"  do
-          = image_tag "https://static.mercdn.net/thumb/photos/m36637885953_1.jpg?1560989695" , width: '160px', height: '160px;'
-          .box-content
-            .box-content__title
-              11111111
-            .box-content__price
-              ¥1223
-      .product-box
-        = link_to "/"  do
-          = image_tag "https://static.mercdn.net/thumb/photos/m36637885953_1.jpg?1560989695" , width: '160px', height: '160px;'
-          .box-content
-            .box-content__title
-              11111111
-            .box-content__price
-              ¥1223
-      .product-box
-        = link_to "/"  do
-          = image_tag "https://static.mercdn.net/thumb/photos/m36637885953_1.jpg?1560989695" , width: '160px', height: '160px;'
-          .box-content
-            .box-content__title
-              11111111
-            .box-content__price
-              ¥1223
+      1 - 
+      = @products.count
+      件表示
+      - @products.each_slice(4) do |product_row|
+        .product-contents
+          - product_row.each do |product|
+            .product-box
+              = link_to product_path(product)  do
+                = image_tag product.images.first.image.url, width: '160px', height: '160px;'
+                .box-content
+                  .box-content__title
+                    = product.name
+                  .box-content__price
+                    ¥
+                    = number_with_delimiter(product.sales_price)
+
+
 
 

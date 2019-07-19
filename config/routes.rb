@@ -8,7 +8,10 @@ Rails.application.routes.draw do
       get 'confirmation'
       get 'buy'
       post 'pay'
+    end
 
+    collection do
+      get 'search'
     end
   end
 

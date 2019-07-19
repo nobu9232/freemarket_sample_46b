@@ -56,6 +56,11 @@ class ProductsController < ApplicationController
       redirect_to buy_product_path(@product.id)
   end
 
+  def search
+    @keyword = params[:keyword]
+    @products = Product.where('name LIKE(?)', "%#{@keyword}%")
+  end
+
   private
   def product_params
     params.permit(

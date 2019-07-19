@@ -86,3 +86,4 @@ gem "jquery-rails"
 gem 'payjp'
 gem 'dropzonejs-rails'
 gem 'ancestry'
+gem 'ransack'

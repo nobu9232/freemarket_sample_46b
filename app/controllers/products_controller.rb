@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product ,only: [:show, :show_sell, :confirmation, :buy, :pay]
-  before_action :set_image ,only: [:show, :show_sell, :confirmation, :buy]
+  before_action :set_product ,only: [:update, :edit, :show, :show_sell, :confirmation, :buy, :pay]
+  before_action :set_image ,only: [:update, :edit, :show, :show_sell, :confirmation, :buy]
 
   def index
     @products = Product.order(id: "DESC").includes(:images)
@@ -30,6 +30,27 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    render layout: "simple_layout"
+  end
+
+  def update
+    # binding.pry
+    @brand = Brand.find_by(brand_name: brand_params[:brand_name])
+    if !@brand
+      Brand.transaction do
+        @brand = Brand.create(brand_params)
+      end
+    end
+    
+    @edit_params = edit_params.merge(brand_id: @brand[:id])
+    if @product.update(@edit_params)
+      redirect_to show_sell_path(@product)
+    else
+      render :edit
+    end
+  end
+
   def show
   end
 
@@ -37,7 +58,7 @@ class ProductsController < ApplicationController
     redirect_to root_path unless user_signed_in? && current_user.id == @product.seller_user_id
   end
 
-  def confirmation
+  def confirmation    
     render :confirmation, layout: "simple_layout"
   end
 
@@ -74,8 +95,25 @@ class ProductsController < ApplicationController
     ).merge(status: 0, seller_user_id: current_user.id)
   end
 
+  def edit_params
+    params.require(:product).permit(
+      :name,
+      :text,
+      :category_id,
+      :category_child_id,
+      :category_groundchild_id,
+      :size_id,
+      :condition,
+      :shipping_charge,
+      :shipping_method_id,
+      :prefecture_id,
+      :shipping_days,
+      :sales_price
+    )
+  end
+
   def image_params
-    params.permit(:image)
+    params.permit(:image, :image_cache)
   end
 
   def brand_params

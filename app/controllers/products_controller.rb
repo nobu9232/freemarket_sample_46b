@@ -4,6 +4,11 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.order(id: "DESC").includes(:images)
+    @q = Product.ransack(params[:q])
+    if params[:q].present?
+      @products = @q.result(distinct: true)
+      render :search
+    end
   end
 
   def new
@@ -59,6 +64,9 @@ class ProductsController < ApplicationController
   def search
     @keyword = params[:keyword]
     @products = Product.where('name LIKE(?)', "%#{@keyword}%")
+    @q = Product.search(params[:q])
+    @product = @q.result(distinct: true)
+
   end
 
   private

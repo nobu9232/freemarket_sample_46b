@@ -24,11 +24,11 @@ class User < ApplicationRecord
           # snsの情報
           # binding.pry => auth.infoとかで確認 
           nickname: auth.info.name,
-          email: auth.info.email
+          email: auth.info.email,
         )
       end
       sns = snscredential
-      #binding.pry
+      # binding.pry
 
     else #sns登録 未
       user = User.where(email: auth.info.email).first
@@ -41,7 +41,8 @@ class User < ApplicationRecord
       else #会員登録 未
         user = User.new(
           nickname: auth.info.name,
-          email: auth.info.email
+          email: auth.info.email,
+          password: Devise.friendly_token[0, 20]
         )
         # binding.pry
         sns = SnsCredential.create(

@@ -31,8 +31,8 @@ class ProductsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   def show_sell
+    redirect_to root_path unless user_signed_in? && current_user.id == @product.seller_user_id
     @product = Product.find(params[:id])
   end
 
@@ -40,13 +40,9 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy  
     redirect_to root_path
-=======
-  def show
->>>>>>> master
   end
 
-  def show_sell
-    redirect_to root_path unless user_signed_in? && current_user.id == @product.seller_user_id
+  def show
   end
 
   def confirmation

@@ -4,16 +4,20 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.order(id: "DESC").includes(:images)
-    @q = Product.ransack(params[:q])
     if params[:q].present?
+      @q = Product.ransack(params[:q])
       @products = @q.result(distinct: true)
       render :search
     end
   end
 
   def new
-    render layout: "simple_layout"
-    @product = Product.new
+    if user_signed_in?
+      render layout: "simple_layout"
+      @product = Product.new 
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
@@ -23,6 +27,7 @@ class ProductsController < ApplicationController
         @brand = Brand.create(brand_params)
       end
     end
+    
     @product_params = product_params.merge(brand_id: @brand[:id])
     @product = Product.new(@product_params)
     if @product.save
@@ -35,15 +40,30 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def show_sell
     redirect_to root_path unless user_signed_in? && current_user.id == @product.seller_user_id
+    @product = Product.find(params[:id])
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy  
+    redirect_to root_path
+  end
+
+  def show
+
   end
 
   def confirmation
-    render :confirmation, layout: "simple_layout"
+    if user_signed_in? && current_user.id == @product.seller_user_id
+      redirect_to new_user_session_path
+    elsif user_signed_in? 
+      render :confirmation, layout: "simple_layout"  
+
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def buy
@@ -51,6 +71,9 @@ class ProductsController < ApplicationController
   end
 
   def pay
+    if current_user.cards == []
+      redirect_to card_form_user_path(current_user)
+    else
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       charge = Payjp::Charge.create(
         amount: @product.sales_price,
@@ -59,6 +82,7 @@ class ProductsController < ApplicationController
       )
       @product.update(buyer_user_id: current_user.id, status: 2)
       redirect_to buy_product_path(@product.id)
+    end
   end
 
   def search

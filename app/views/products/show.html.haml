@@ -46,8 +46,9 @@
             %th
               ブランド
             %td
-              = link_to do
-                = @product.brand.brand_name
+              - if @product.brand != nil
+                = link_to do
+                  = @product.brand.brand_name
           %tr
             %th
               商品のサイズ
@@ -98,6 +99,8 @@
       - if @product.status == "落札済"
         .item-bought-btn
           売り切れました
+      - elsif user_signed_in? && current_user.id == @product.seller_user_id 
+
       - else
         .item-buy-btn
           = link_to confirmation_product_path(@product.id)do

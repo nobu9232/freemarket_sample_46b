@@ -17,8 +17,8 @@ class Product < ApplicationRecord
 
   # カテゴリーとのアソシエーション
   belongs_to :category
-  belongs_to :category_child, class_name: "Category"
-  belongs_to :category_groundchild, class_name: "Category"
+  belongs_to :category_child, class_name:"Category"
+  belongs_to :category_groundchild, class_name:"Category"
 
   # 都道府県active_hash
   belongs_to_active_hash :prefecture, class_name: "Prefecture", foreign_key: "prefecture_id"
@@ -48,5 +48,4 @@ class Product < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :shipping_days, presence: true
   validates :sales_price, presence: true
-  validates :brand_id, presence: true
 end

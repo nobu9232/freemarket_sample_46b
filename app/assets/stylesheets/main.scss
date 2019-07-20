@@ -62,7 +62,6 @@
 
         a {
           text-decoration: none;
-          color: black;
         }
 
         a:hover {
@@ -72,6 +71,7 @@
         .boxs-body {
           height: 78px;
           padding: 16px;
+          color: black;
 
           &__name {
             height: 48px;

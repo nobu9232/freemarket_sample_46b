@@ -1,0 +1,45 @@
+.search-contents{
+  a{
+    text-decoration: none;
+    color: black;
+  }
+    width: 700px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+    .search-word{
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .search-number{
+      margin: 8px 0;
+      font-size: 12px;
+      color: #888;
+    }
+    .product-contents{
+      display: flex;
+      .product-box{
+        margin: 0 20px 20px 0;
+        width: 160px;
+        background: #fff;
+        .box-content{
+          padding: 16px;
+          box-sizing: border-box;
+          &__title{
+            overflow: hidden;
+            position: relative;
+            font-size: 15px;
+            font-weight: 400;
+            word-break: break-word;
+            white-space: normal; 
+          }
+          &__price{
+            margin-top: 8px;
+            font-size: 14px;
+
+          }
+
+        }
+      }
+    }
+}

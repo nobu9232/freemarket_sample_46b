@@ -8,7 +8,7 @@ crumb :mypage do
 end
 
 crumb :card do
-  link "支払い方法"#, card_users_path
+  link "支払い方法", card_users_path
   parent :mypage
 end
 
@@ -28,7 +28,7 @@ crumb :identification do
 end
 
 crumb :logout do
-  link "ログアウト"#, logout_users_path
+  link "ログアウト"
   parent :mypage
 end
 
@@ -47,8 +47,8 @@ crumb :sold do
   parent :mypage
 end
 
-crumb :item do
-  link "商品名"
+crumb :product do |product|
+  link product.name
   parent :root
 end
 

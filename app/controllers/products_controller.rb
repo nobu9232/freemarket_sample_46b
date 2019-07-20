@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
+  before_action :set_product ,only: [:show, :show_sell, :confirmation, :buy, :pay]
+  before_action :set_image ,only: [:show, :show_sell, :confirmation, :buy]
 
   def index
     @products = Product.order(id: "DESC").includes(:images)
-  end
 
-  def show
   end
 
   def new
@@ -32,9 +32,18 @@ class ProductsController < ApplicationController
   end
 
   def show_sell
-
+    redirect_to root_path unless user_signed_in? && current_user.id == @product.seller_user_id
+    @product = Product.find(params[:id])
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy  
+    redirect_to root_path
+  end
+
+  def show
+  end
 
   def confirmation
     render :confirmation, layout: "simple_layout"
@@ -43,6 +52,23 @@ class ProductsController < ApplicationController
   def buy
     render :buy, layout: "simple_layout"
   end
+
+  def pay
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      charge = Payjp::Charge.create(
+        amount: @product.sales_price,
+        customer: current_user.cards.first.customer_id,
+        currency: 'jpy',
+      )
+      @product.update(buyer_user_id: current_user.id, status: 2)
+      redirect_to buy_product_path(@product.id)
+  end
+
+  def search
+    @keyword = params[:keyword]
+    @products = Product.where('name LIKE(?)', "%#{@keyword}%")
+  end
+
   private
   def product_params
     params.permit(
@@ -68,5 +94,14 @@ class ProductsController < ApplicationController
   def brand_params
     params.permit(:brand_name)
   end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def set_image
+    @image = Product.find(params[:id]).images.first
+  end
+
 
 end

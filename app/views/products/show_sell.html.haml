@@ -38,16 +38,17 @@
                 = @product.category.name
               = link_to do
                 %i.fas.fa-chevron-right
-                = @product.category_child.name              
+                = @product.category_child.name
               = link_to do
                 %i.fas.fa-chevron-right
-                = @product.category_groundchild.name              
+                = @product.category_groundchild.name
           %tr
             %th
               ブランド
             %td
-              = link_to do
-                = @product.brand.brand_name
+              - if @product.brand != nil
+                = link_to do
+                  = @product.brand.brand_name
           %tr
             %th
               商品のサイズ

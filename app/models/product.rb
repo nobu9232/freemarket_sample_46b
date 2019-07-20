@@ -48,5 +48,4 @@ class Product < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :shipping_days, presence: true
   validates :sales_price, presence: true
-  validates :brand_id, presence: true
 end

@@ -3,12 +3,13 @@
     .tops-content
       商品を確定しますか？
     .buy-content
-      = image_tag "https://static.mercdn.net/thumb/photos/m84566995704_1.jpg?1560813026",class: "buy-content__image"
+      = image_tag @image.image.url ,class: "buy-content__image"
       %p.buy-content__product-name
-        オールドコーチ ショルダーバッグ
+        = @product.name
       .buy-form
         %p.buy-form__price
-          ¥ 7,800
+          ¥
+          = number_with_delimiter(@product.sales_price)
           %span.buy-form__price-shipping-fee
             送料込み
         .buy-form__buy-accordion
@@ -17,18 +18,25 @@
           .buy-form__payment--left
             支払い金額
           .buy-form__payment--right
-            ￥7,800
+            ¥
+            = number_with_delimiter(@product.sales_price)
         %p.buy-form__error-text
           配送先と支払い方法の入力を完了してください。
-        = link_to "購入する", pay_users_path, method: :post, class: "buy-form__buy-button", style: "color: white;"
+        = link_to "購入する", pay_product_path(@product.id), method: :post, class: "buy-form__buy-button", style: "color: white;"
         .user-info
           %h3 配送先
           .user-info__text
-            〒555-5555 
+            〒
+            = current_user.user_detail.postal_code
             %br
-            大阪府大阪市中央区東北浜町2丁目
+            = current_user.user_detail.prefecture.name
+            = current_user.user_detail.city
+            = current_user.user_detail.address
+            = current_user.user_detail.building_name
             %br
-            田中　義昭
+            = current_user.user_detail.family_name
+            = current_user.user_detail.first_name
+
           .user-info__text--right
             = link_to '変更する'
         .payment-method

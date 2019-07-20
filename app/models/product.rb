@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :saler_user, class_name: "User"
+  belongs_to :seller_user, class_name: "User"
   belongs_to :buyer_user, class_name: "User"
 
   # 取引段階enum
@@ -17,8 +17,13 @@ class Product < ApplicationRecord
 
   # カテゴリーとのアソシエーション
   belongs_to :category
+<<<<<<< HEAD
   belongs_to :category_child, class_name:"Category"
   belongs_to :category_groundchild, class_name:"Category"
+=======
+  belongs_to :category_child, class_name: "Category"
+  belongs_to :category_groundchild, class_name: "Category"
+>>>>>>> master
 
   # 都道府県active_hash
   belongs_to_active_hash :prefecture, class_name: "Prefecture", foreign_key: "prefecture_id"

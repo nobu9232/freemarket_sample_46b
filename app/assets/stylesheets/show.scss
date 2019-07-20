@@ -31,6 +31,7 @@
         border: none;
 
         &__image {
+          position: relative;
           height: 375px;
           width: 300px;
           background-color: #fafafa;
@@ -40,6 +41,27 @@
           img {
             height: 360px;
             width: 300px;
+          }
+        }
+
+        .sold-out-badge {
+          border-top: 60px solid red;
+          border-right: 60px solid transparent;
+          border-bottom: 60px solid transparent;
+          border-left: 60px solid red;
+          position: absolute;
+          z-index: 2;
+          height: 0px;
+          width: 0px;
+          &__letter{
+            position: absolute;
+            z-index: 3;
+            top: 25px;
+            transform: rotate(-45deg);
+            letter-spacing: 2px;
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
           }
         }
 
@@ -143,6 +165,7 @@
           font-size: 16px;
         }
       }
+
   
       .item-buy-btn {
         box-sizing: border-box;
@@ -162,6 +185,21 @@
           line-height: 60px;
         }
       }
+      .item-bought-btn {
+        box-sizing: border-box;
+        background-color: #888;
+        height: 60px;
+        width: 620px;
+        margin: 16px 0 24px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 60px;
+        color: #fff;
+      }
+
+
   
       .item-date {
         box-sizing: border-box;

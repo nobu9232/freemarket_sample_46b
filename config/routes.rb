@@ -7,14 +7,20 @@ Rails.application.routes.draw do
       get 'show_sell'
       get 'confirmation'
       get 'buy'
+      post 'pay'
+    end
+
+    collection do
+      get 'search'
     end
   end
 
   resources :users do
-    collection do
+    member do
       get 'card_form'
+    end
+    collection do
       post 'card_create'
-      post 'pay'
       get 'signup'
       get 'profile'
       get 'card'

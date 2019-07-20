@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
         @brand = Brand.create(brand_params)
       end
     end
+    
     @product_params = product_params.merge(brand_id: @brand[:id])
     @product = Product.new(@product_params)
     if @product.save
@@ -66,15 +67,18 @@ class ProductsController < ApplicationController
   end
 
   def pay
-    if user
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
-    charge = Payjp::Charge.create(
-      amount: @product.sales_price,
-      customer: current_user.cards.first.customer_id,
-      currency: 'jpy',
-    )
-    @product.update(buyer_user_id: current_user.id, status: 2)
-    redirect_to buy_product_path(@product.id)
+    if current_user.cards == []
+      redirect_to card_form_user_path(current_user)
+    else
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      charge = Payjp::Charge.create(
+        amount: @product.sales_price,
+        customer: current_user.cards.first.customer_id,
+        currency: 'jpy',
+      )
+      @product.update(buyer_user_id: current_user.id, status: 2)
+      redirect_to buy_product_path(@product.id)
+    end
   end
 
   def search

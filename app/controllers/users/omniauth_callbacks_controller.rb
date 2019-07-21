@@ -14,7 +14,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = info[:user]
     @user_detail = @user.build_user_detail
     sns_id = info[:sns_id]
-    # binding.pry
     if @user.persisted? #userが存在したら
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?

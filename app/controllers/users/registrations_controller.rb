@@ -13,16 +13,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-      #binding.pry
     if session["devise.sns_id"] #sns登録なら
       params[:user][:password] = Devise.friendly_token.first(6) #deviseのパスワード自動生成機能を使用
       params[:user][:password_confirmation] = params[:user][:password]
       super
       latest_sns = SnsCredential.last
       sns = latest_sns.update(user_id:  @user.id)
-      binding.pry
     else #email登録なら
-      # binding.pry
       super
     end
   end

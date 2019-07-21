@@ -90,7 +90,23 @@ class ProductsController < ApplicationController
     @products = Product.where('name LIKE(?)', "%#{@keyword}%")
     @q = Product.search(params[:q])
     @product = @q.result(distinct: true)
+  end
 
+  def sort
+    @q = Product.search(params[:q])
+    @product = @q.result(distinct: true)
+    if params[:q].present?
+      # 検索フォームからアクセスした時の処理
+        @search = @product.ransack(params[:q][:sorts])
+        @products = @search.result
+      else
+      # 検索フォーム以外からアクセスした時の処理
+        params[:q] = { sorts: 'id desc' }
+        @search = Product.ransack()
+        @items = Product.all
+      end
+    render :search
+  
   end
 
   private

@@ -1,20 +1,81 @@
 .side-bar  
   .sort-select-container
-    = select_tag 'sort', options_for_select([["価格の安い順","price_asc"], ["価格の高い順","price_desc"], ["出品の古い順","created_asc"], ["出品の新しい順","created_desc"], ["いいねの多い順","like_desc"]],:selected=>"5"), prompt: '並び替え', class: 'sort-select'
+    = search_form_for @q, url: sort_products_path ,html: { method: :post } do |f|
+      = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q][:sorts] }, {class: 'sort-select', onchange: 'this.form.submit()'} )
     %i.fa.fa-chevron-down
   
   .search-dropdown-contents
     %h3
       詳細検索
     = search_form_for @q do |f|
-      %label
-        %i.fa.fa-plus
-        %span キーワードを追加する
-      = f.search_field :name_cont ,class: 'input-default'
+      .form-group
+        %label
+          %i.fa.fa-plus
+          %span キーワードを追加する
+        = f.search_field :name_cont ,class: 'input-default'
+      .form-group
+        %label
+          %i.fa.fa-list
+          %span カテゴリーを選択する
+        = f.search_field :_cont ,class: 'input-default'
+        %i.fas.fa-chevron-down
+      .form-group
+        %label
+          %i.fa.fa-tag
+          %span ブランド名から探す
+        = f.search_field :brand_brand_name_cont ,placeholder: '例)　シャネル',class: 'input-default'
+      .form-group
+        %label
+          %i.fa.fa-square
+          %span サイズを指定する
+        = f.collection_select :size_id_eq, Size.all, :id, :name, {prompt: "---"}, class: "input-default"
+        %i.fas.fa-chevron-down
+      .form-group
+        %label
+          %i.fa.fa-coins
+          %span 価格
+          %select#input-price{onchange: "priceSearch()"}
+            %option{disabled: "disabled", selected: "selected", value: ""} 選択してください
+            %option{value: "300-1000"} 300 ~ 1000
+            %option{value: "1000-5000"} 1000 ~ 5000
+            %option{value: "5000-10000"} 5000 ~ 10000
+            %option{value: "10000-30000"} 10000 ~ 30000
+            %option{value: "30000-50000"} 30000 ~ 5000
+            %option{value: "50000"} 50000 ~
+
+        %i.fas.fa-chevron-down
+        .price-range
+          = f.number_field :sales_price_gteq, placeholder: '¥ Min', class: "price-range__min" ,id: 'min'
+          %span ~
+          = f.number_field :sales_price_lteq, placeholder: '¥ Max', class: "price-range__max", id: 'max'
+          %i.fas.fa-chevron-down
+      .form-group
+        %label
+          %i.fa.fa-star
+          %span 商品の状態
+          .check-box
+            %input#all-condition{name: "allChecked", type: "checkbox"}
+            %label{for: "all"} すべて
+            =  f.collection_check_boxes :condition_in, Size.all, :id, :name
+      .form-group
+        %label
+          %i.fa.fa-truck-moving
+          %span 配送料の負担
+          .check-box
+            %input#all{name: "allChecked", type: "checkbox"}
+            %label{for: "all"} すべて
+            =  f.collection_check_boxes :condition_in, Size.all, :id, :name
+      .form-group
+        %label
+          %i.fa.fa-cart-plus
+          %span 販売状況
+          .check-box
+            %input#all{name: "allChecked", type: "checkbox"}
+            %label{for: "all"} すべて
+            =  f.collection_check_boxes :condition_in, Size.all, :id, :name
 
       .search-buttons
-        .search-buttons__reset
-          クリア
-        =f.submit '完了', class: 'search-buttons__submit'
+        %input{type: "reset", value: "クリア", class: "search-buttons__reset"}
+        = f.submit '完了', class: 'search-buttons__submit'
     
 

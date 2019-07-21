@@ -33,7 +33,12 @@
     margin-bottom: 24px;
   }
 
-  .fa-plus{
+  .form-group{
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .fa{
     margin-right: 4px;
     color: #888;
   }
@@ -55,11 +60,81 @@
     font-size: 16px;
   }
 
+  .fa-chevron-down{
+    position: absolute;
+    top: 48px;
+    right: 5px;
+    width: 25px;
+    color: #888;
+    font-size: 18px;
+    background: white;
+  }
+
+  #input-price{
+    @extend .input-default;
+  }
+
+  .price-range{
+    position: flex;
+    margin-top: 8px;
+
+    &__min{
+      width: 45%;
+      box-sizing: border-box;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      font-size: 16px;
+    }
+
+    &__max{
+      @extend .price-range__min;
+
+    }
+  }
+
+  .check-box{
+    display: block;
+    margin-top: 16px;
+    font-size: 0;
+    input{
+      margin-top: 16px;
+      transform: scale(1.2);
+      margin-right: 5px;
+      width: 19px;
+      height: 20px;
+      border-radius: 2px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      line-height: 17px;
+      text-align: center;
+      color: #fff;
+      vertical-align: middle;
+    }
+    label{
+      display: inline-block;
+      margin-top: 14px;
+      width: 38%;
+      font-size: 14px;
+      font-weight: 400;
+      vertical-align: middle;
+      cursor: pointer;
+
+    }
+
+  }
+
+
+
+
+
 
   .search-buttons{
     display: flex;
     justify-content: space-between;
-    padding: 40px 0 0;
     &__reset{
       width: 45%;
       background: #aaa;

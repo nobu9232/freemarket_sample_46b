@@ -24,15 +24,19 @@ class ProductsController < ApplicationController
       end
     end
     
-    @product_params = product_params.merge(brand_id: @brand[:id])
-    @product = Product.new(@product_params)
-    if @product.save
-      @image = Image.new(image_params)
-      @image.product_id = @product[:id]
-      @image.save
-      redirect_to root_path
+    if image_params == {}
+      redirect_to new_product_path
     else
-      render action: :new, layout: "simple_layout"
+      @product_params = product_params.merge(brand_id: @brand[:id])
+      @product = Product.new(@product_params)
+      if @product.save
+        @image = Image.new(image_params)
+        @image.product_id = @product[:id]
+        @image.save
+        redirect_to root_path
+      else
+        render action: :new, layout: "simple_layout"
+      end
     end
   end
 

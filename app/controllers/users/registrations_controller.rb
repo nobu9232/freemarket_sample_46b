@@ -18,7 +18,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user][:password] = Devise.friendly_token.first(6) #deviseのパスワード自動生成機能を使用
       params[:user][:password_confirmation] = params[:user][:password]
       super
-      sns = SnsCredential.update(user_id:  @user.id)
+      latest_sns = SnsCredential.last
+      sns = latest_sns.update(user_id:  @user.id)
+      binding.pry
     else #email登録なら
       # binding.pry
       super

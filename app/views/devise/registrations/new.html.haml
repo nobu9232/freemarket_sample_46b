@@ -4,9 +4,7 @@
     .form-inner
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource
-        
         .signup-container--first
-
           .form-group
             = f.label "ニックネーム"
             %span 必須
@@ -17,16 +15,19 @@
             %span 必須
             = f.email_field :email, autofocus: true, autocomplete: "email", calss: "input-default", placeholder: "PC・携帯どちらでも可"
             %ul.error__email
-          .form-group
-            = f.label "パスワード"
-            %span 必須
-            = f.password_field :password, autocomplete: "new-password", calss: "input-default", placeholder: "6文字以上"
-            %ul.error__password
-          .form-group
-            = f.label "パスワード(確認)"
-            %span 必須
-            = f.password_field :password_confirmation, autocomplete: "new-password", calss: "input-default", placeholder: "6文字以上"
-            %ul.error__password_confirmation
+            - if session["devise.sns_id"]
+              = hidden_field_tag :sns, session["devise.sns_id"]
+            - else
+              .form-group
+                = f.label "パスワード"
+                %span 必須
+                = f.password_field :password, autocomplete: "new-password", calss: "input-default", placeholder: "6文字以上"
+                %ul.error__password
+              .form-group
+                = f.label "パスワード(確認)"
+                %span 必須
+                = f.password_field :password_confirmation, autocomplete: "new-password", calss: "input-default", placeholder: "6文字以上"
+                %ul.error__password_confirmation
           .form-group
             %h3
               本人確認

@@ -45,17 +45,23 @@ class ProductsController < ApplicationController
   end
 
   def update
-    # binding.pry
-    @brand = Brand.find_by(brand_name: brand_params[:brand_name])
+    @brand = Brand.find_by(brand_name: edit_brand_params[:brand_name])
     if !@brand
       Brand.transaction do
-        @brand = Brand.create(brand_params)
+        @brand = Brand.create(edit_brand_params)
       end
     end
     
     @edit_params = edit_params.merge(brand_id: @brand[:id])
     if @product.update(@edit_params)
-      redirect_to show_sell_path(@product)
+      # binding.pry
+      if edit_image_params != {}
+        @image = Image.find_by(product_id: @product[:id]).destroy()
+        @image = Image.new(edit_image_params)
+        @image.product_id = @product[:id]
+        @image.save
+      end
+      redirect_to show_sell_product_path(@product)
     else
       render :edit
     end
@@ -79,10 +85,7 @@ class ProductsController < ApplicationController
 
   end
 
-<<<<<<< HEAD
-  def confirmation    
-    render :confirmation, layout: "simple_layout"
-=======
+
   def confirmation
     if user_signed_in? && current_user.id == @product.seller_user_id
       redirect_to new_user_session_path
@@ -92,7 +95,6 @@ class ProductsController < ApplicationController
     else
       redirect_to new_user_session_path
     end
->>>>>>> master
   end
 
   def buy
@@ -154,8 +156,16 @@ class ProductsController < ApplicationController
     )
   end
 
+  def edit_image_params
+    params.require(:product).permit(:image)
+  end
+
+  def edit_brand_params
+    params.require(:product).permit(:brand_name)
+  end
+
   def image_params
-    params.permit(:image, :image_cache)
+    params.permit(:image)
   end
 
   def brand_params

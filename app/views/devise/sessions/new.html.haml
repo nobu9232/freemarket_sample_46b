@@ -9,11 +9,11 @@
       = link_to do 
         .login-inner__facebook-button
           %i.fab.fa-facebook-square
-          = link_to "Facebookでログイン"
+          = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path
       = link_to do
         .login-inner__google-button
           %i.fab.fa-google
-          = link_to "Googleでログイン"
+          = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .login-form
           .alert-text

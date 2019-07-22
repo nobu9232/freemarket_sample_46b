@@ -35,6 +35,10 @@ $(document).on('turbolinks:load', function() {
     var first_name_kana = $('#user_user_detail_attributes_first_name_kana').val();
     var date_of_birth = $('.date-select__tab').val();
     var nullMessage = `<li class="error-text">入力してください</li>`;
+    if ($('#sns')) {
+      password = "123456";
+      password_confirmation = "123456";
+    }
     var passwordLength = password.length< 6 || password.length > 128;
     $('.error-text').remove();
     if(nickname == "" || password == "" || passwordLength || email == "" || password_confirmation == "" || password != password_confirmation){

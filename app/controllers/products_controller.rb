@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if edit_brand_params[:brand_name] != ""
+    if edit_brand_params[:brand_name].present?
       @brand = Brand.find_by(brand_name: edit_brand_params[:brand_name])
       if !@brand
         Brand.transaction do

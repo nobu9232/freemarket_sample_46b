@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product ,only: [:show, :show_sell, :confirmation, :buy, :pay]
-  before_action :set_image ,only: [:show, :show_sell, :confirmation, :buy]
+  before_action :set_product ,only: [:update, :edit, :show, :show_sell, :confirmation, :buy, :pay]
+  before_action :set_image ,only: [:update, :edit, :show, :show_sell, :confirmation, :buy]
 
   def index
     @products = Product.order(id: "DESC").includes(:images)
@@ -40,6 +40,35 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    render layout: "simple_layout"
+  end
+
+  def update
+    if edit_brand_params[:brand_name].present?
+      @brand = Brand.find_by(brand_name: edit_brand_params[:brand_name])
+      if !@brand
+        Brand.transaction do
+          @brand = Brand.create(edit_brand_params)
+        end
+      end
+    end
+    if @product.update(edit_params)
+      if edit_image_params != {}
+        @image = Image.find_by(product_id: @product[:id]).destroy()
+        @image = Image.new(edit_image_params)
+        @image.product_id = @product[:id]
+        @image.save
+      end
+      redirect_to show_sell_product_path(@product)
+    else
+      render :edit
+    end
+  end
+
+  def show
+  end
+
   def show_sell
     redirect_to root_path unless user_signed_in? && current_user.id == @product.seller_user_id
     @product = Product.find(params[:id])
@@ -54,6 +83,7 @@ class ProductsController < ApplicationController
   def show
 
   end
+
 
   def confirmation
     if user_signed_in? && current_user.id == @product.seller_user_id
@@ -106,6 +136,31 @@ class ProductsController < ApplicationController
       :shipping_days,
       :sales_price
     ).merge(status: 0, seller_user_id: current_user.id)
+  end
+
+  def edit_params
+    params.require(:product).permit(
+      :name,
+      :text,
+      :category_id,
+      :category_child_id,
+      :category_groundchild_id,
+      :size_id,
+      :condition,
+      :shipping_charge,
+      :shipping_method_id,
+      :prefecture_id,
+      :shipping_days,
+      :sales_price
+    )
+  end
+
+  def edit_image_params
+    params.require(:product).permit(:image)
+  end
+
+  def edit_brand_params
+    params.require(:product).permit(:brand_name)
   end
 
   def image_params

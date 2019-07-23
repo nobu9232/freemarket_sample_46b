@@ -45,16 +45,15 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @brand = Brand.find_by(brand_name: edit_brand_params[:brand_name])
-    if !@brand
-      Brand.transaction do
-        @brand = Brand.create(edit_brand_params)
+    if edit_brand_params[:brand_name] != ""
+      @brand = Brand.find_by(brand_name: edit_brand_params[:brand_name])
+      if !@brand
+        Brand.transaction do
+          @brand = Brand.create(edit_brand_params)
+        end
       end
     end
-    
-    @edit_params = edit_params.merge(brand_id: @brand[:id])
-    if @product.update(@edit_params)
-      # binding.pry
+    if @product.update(edit_params)
       if edit_image_params != {}
         @image = Image.find_by(product_id: @product[:id]).destroy()
         @image = Image.new(edit_image_params)

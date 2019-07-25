@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product ,only: [:update, :edit, :show, :show_sell, :confirmation, :buy, :pay]
   before_action :set_image ,only: [:update, :edit, :show, :show_sell, :confirmation, :buy]
+  before_action :user_filter ,only: [:update, :edit, :destroy]
+
 
   def index
     @products = Product.order(id: "DESC").includes(:images)
@@ -179,5 +181,8 @@ class ProductsController < ApplicationController
     @image = Product.find(params[:id]).images.first
   end
 
+  def user_filter
+    redirect_to root_path unless user_signed_in? && current_user.id == @product.seller_user_id
+  end
 
 end

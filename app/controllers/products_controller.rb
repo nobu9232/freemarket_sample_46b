@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_product ,only: [:update, :edit, :show, :show_sell, :confirmation, :buy, :pay]
+  before_action :set_product ,only: [:update, :edit, :destroy, :show, :show_sell, :confirmation,  :buy, :pay]
   before_action :set_image ,only: [:update, :edit, :show, :show_sell, :confirmation, :buy]
-  before_action :user_filter ,only: [:update, :edit, :destroy]
+  before_action :user_filter ,only: [:show_sell, :update, :edit, :destroy]
 
 
   def index
@@ -72,12 +72,9 @@ class ProductsController < ApplicationController
   end
 
   def show_sell
-    redirect_to root_path unless user_signed_in? && current_user.id == @product.seller_user_id
-    @product = Product.find(params[:id])
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy  
     redirect_to root_path
   end
